@@ -7,8 +7,8 @@
 
 session_start();
 
-require "db_connectl.php";
-
+require "db_connect.php";
+global $con;
 
 $uname="";
 $err_uname="";
@@ -46,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   if(!$has_error)
   {
     $query = "SELECT username from owner where username='$uname' and password='$psw'";
-    $result=get($query);
+    $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0)
     {
       $row=mysqli_fetch_assoc($result);
@@ -106,7 +106,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   if(!$has_error)
   {
     $query = "SELECT username from homeseeker where username='$uname' and password='$psw'";
-    $result=get($query);
+    $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0)
     {
       $row=mysqli_fetch_assoc($result);
@@ -167,7 +167,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   if(!$has_error)
   {
     $query = "SELECT username from admin where username='$uname' and password='$psw' and type='Admin'";
-    $result=get($query);
+    $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0)
     {
       $row=mysqli_fetch_assoc($result);
@@ -224,7 +224,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   if(!$has_error)
   {
     $query = "SELECT username from modarator where username='$uname' and password='$psw' and type='Moderator'";
-    $result=get($query);
+    $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0)
     {
       $row=mysqli_fetch_assoc($result);
@@ -249,24 +249,38 @@ echo '<script>alert("Please check your username and Password")</script>';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="login.css" />
+
   </head>
 
   <body>
     <form class="box" action="" method="post">
-      <h1>Login</h1>
+  <table align = "center">
+
+    <h1 align = "center">Login</h1>
       
 
       <!--php validation error dekhanor jonno-->
 
-      <input type="text" placeholder="Enter Username" name="uname" >
-    <br><span style="color:red"><?php echo $err_uname;?></span></td>
+    <tr>
+      <td><input type="text" placeholder="Enter Username" name="uname"></td>
+    <td><span> <?php echo $err_uname;?></span></td>
+</tr>
 
-
-       <input type="password" placeholder="Enter Password" name="psw" >
-                <br><span style="color:red"><?php echo $err_psw;?></span></td>  
-
-      <input type="submit" name="login" value="Login" />
+<tr>
+      <td><input type="password" placeholder="Enter Password" name="psw" ></td>
+                <td><span><?php echo $err_psw;?></span></td>  
+</tr>
+     <tr>
+        
+        <td><input type="submit" name="login" value="Login" /></td>
+</tr>
+<tr>
+        <td><a href = "SignUpOwner.php">Sign Up As A Home Owner</a> </td>
+</tr>
+<tr>
+        <td><a href = "SignUpHomeSeeker.php">Sign Up As A Home Seeker</a></td>
+</tr>
+</table>
     </form>
   </body>
 </html>
