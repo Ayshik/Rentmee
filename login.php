@@ -175,10 +175,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 
       header("Location:admin.html");
     }
-    else
-    {
-echo '<script>alert("Please check your username and Password")</script>';
-    }
+    
   }
 
 

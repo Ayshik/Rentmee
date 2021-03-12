@@ -74,6 +74,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     if($flag)
     {
+		
+		
+		
     $name=mysqli_real_escape_string($con,$name);
     $pass=mysqli_real_escape_string($con,$pass);
     $email=mysqli_real_escape_string($con,$email);
@@ -90,6 +93,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       echo "user table Error: " . $sql . "<br>" . mysqli_error($con);
     }
 }
+
+
+  if(file_exists('info.json'))  
+           {  
+                $current_data = file_get_contents('info.json');  
+                $array_data = json_decode($current_data, true);  
+                $extra = array(  
+                      'username' =>     $_POST['uname'],
+                      'email' =>     $_POST['Email'],
+                      'Name'   =>     $_POST['name'],  
+                      'password' =>     $_POST['pass'],
+                      'Address' =>     $_POST['address'],
+                      'phone'    =>     $_POST["phone"],  
+                       'nid'     =>     $_POST["nid"]  
+                );  
+                $array_data[] = $extra;  
+                $final_data = json_encode($array_data);  
+                if(file_put_contents('info.json', $final_data))  
+                {  
+                    echo '<script>alert("Data Added in info.json file")</script>';
+                }  
+           }  
+           else  
+           {  
+                $error = 'JSON File not exits';  
+           }  
+          
+        
   }
   
 } 
