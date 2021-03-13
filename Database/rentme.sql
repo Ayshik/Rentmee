@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2021 at 09:01 PM
+-- Generation Time: Mar 13, 2021 at 06:23 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -108,6 +108,7 @@ CREATE TABLE `homeseeker` (
 --
 
 INSERT INTO `homeseeker` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
+(0, 'AYSHIK112', 'ayshikmee@gmail.com', '876543', 'Northern Ireland,Ballycarry', '@Ayshik1234', 'active', '12345678', 'Ayshik Khan'),
 (2, 'Rohan01', '', '01723456789', 'Basundhara', '1234', 'Active', '13123425343463463567', 'Rohan Rashid'),
 (3, 'Ayshik000', 'Ayshikmee@gmail.com', '017933240820', 'Ayshik111', '@Ayshikmee1234', 'Active', '12345678909876432', 'Ayshik Khan yah'),
 (4, 'Rohan23', 'hasemmama@gmail.com', '01633075341', 'Basundhara', '@Ayshikmee1234', 'Active', '123456788543256', 'Rohan Khan');
@@ -143,23 +144,23 @@ CREATE TABLE `owner` (
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `phone` varchar(100) NOT NULL,
-  `space` varchar(100) NOT NULL,
+  `Address` varchar(300) NOT NULL,
   `password` varchar(100) NOT NULL,
   `status` varchar(100) NOT NULL,
-  `Name` varchar(200) NOT NULL,
-  `Address` varchar(300) NOT NULL,
-  `Val` varchar(50) NOT NULL
+  `nid` varchar(100) NOT NULL,
+  `Name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `owner`
 --
 
-INSERT INTO `owner` (`sl`, `username`, `email`, `phone`, `space`, `password`, `status`, `Name`, `Address`, `Val`) VALUES
-(1, 'ayshik', 'Aysh@gmail.com', '017933240820', '4', '1234', 'Active', 'Ayshik boss', 'Dhaka', 'ok'),
-(6, 'Ayshik112', 'ayshikmee@gmail.com', '01775503498', '6', '@Ayshik1234', 'Active', 'Ayshik Khan', 'Kuril', 'ok'),
-(7, 'Saif112', 'Ayshik@gmail.com', '01633075341', '7', '@Saif112', 'Inactive', 'Kuddus', 'Basundhara', 'ok'),
-(8, 'Rohan', 'rohan@gmail.com', '01712345678', '1', '123', 'Active', 'Rohan Rashid Dip', 'Basundhara,Dhaka, Mujib Sarak,sirajgonj', 'ok');
+INSERT INTO `owner` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
+(1, 'ayshik', 'Aysh@gmail.com', '017933240820', 'Dhaka', '1234', 'Active', '4', 'Ayshik boss'),
+(6, 'Ayshik112', 'ayshikmee@gmail.com', '01775503498', 'Kuril', '@Ayshik1234', 'Active', '6', 'Ayshik Khan'),
+(7, 'Saif112', 'Ayshik@gmail.com', '01633075341', 'Basundhara', '@Saif112', 'Inactive', '7', 'Kuddus'),
+(8, 'Rohan', 'rohan@gmail.com', '01712345678', 'Basundhara,Dhaka, Mujib Sarak,sirajgonj', '123', 'Active', '1', 'Rohan Rashid Dip'),
+(9, 'AYSHIK112', 'ayshikmee@gmail.com', '01775503498', 'Northern Ireland,Ballycarry', '123321123', 'active', '123456543456', 'Ayshik Khan');
 
 -- --------------------------------------------------------
 
@@ -285,7 +286,7 @@ ALTER TABLE `modarator`
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `prequest`
