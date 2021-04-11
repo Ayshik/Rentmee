@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       $row=mysqli_fetch_assoc($result);
       $_SESSION["loggedinuser"]=$row["username"];
 
-      header("Location:owner.html");
+      header("Location:owner.php");
     }
     else
     {
@@ -112,7 +112,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       $row=mysqli_fetch_assoc($result);
       $_SESSION["loggedinuser"]=$row["username"];
 
-      header("Location:homeseeker.html");
+      header("Location:homeseeker.php");
     }
     else
     {
@@ -173,7 +173,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       $row=mysqli_fetch_assoc($result);
       $_SESSION["loggedinuser"]=$row["username"];
 
-      header("Location:admin.html");
+      header("Location:admin.php");
     }
     
   }
@@ -227,7 +227,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       $row=mysqli_fetch_assoc($result);
       $_SESSION["loggedinuser"]=$row["username"];
 
-      header("Location:modarator.php");
+      header("Location:modaretor.php");
     }
     else
     {
@@ -271,12 +271,7 @@ echo '<script>alert("Please check your username and Password")</script>';
         
         <td><input type="submit" name="login" value="Login" /></td>
 </tr>
-<tr>
-        <td><a href = "SignUpOwner.php">Sign Up As A Home Owner</a> </td>
-</tr>
-<tr>
-        <td><a href = "SignUpHomeSeeker.php">Sign Up As A Home Seeker</a></td>
-</tr>
+
 </table>
     </form>
   </body>

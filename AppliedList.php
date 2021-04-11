@@ -1,7 +1,7 @@
-<html>
-    <head>
-    </head>
-    <body>
+<?php
+include('Ownerheader/ownerhead.php');
+?>
+<section>
         <div align ="center">
             <h2>Applied List Of homeseeker</h2>
             <table border="1px" >
@@ -52,5 +52,6 @@
                 
             
         </div>
+		</section>
     </body>
 </html>

@@ -1,10 +1,11 @@
-<html>
-<head>
-</head>
-<body>
-<table align="center">
-    <h1 align="center">Home specification</h1>
+<?php
+include('Ownerheader/ownerhead.php');
+?>
+<section>
+<center><table align="center">
+    <h1>Home specification</h1>
     <tr>
+	
         <td>Category of homeseeker</td>
         <td><input type="checkbox">Family
             <input type="checkbox">Bechalor</td>
@@ -90,7 +91,7 @@
         <td><a href="owner.html">Back</a></td>
         <td><input type="submit" value="Post"></td>
     </tr>
-</table>    
-
+</table></center> 
+</section>
 </body>
 </html>

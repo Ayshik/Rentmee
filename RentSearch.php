@@ -1,8 +1,8 @@
-<html>
-    <head>
-    </head>
-    <body>
-        <div align = "center">
+<?php
+include('Homeseekerheader/homeseekerheader.php');
+?>
+    <section>  
+	  <div align = "center">
             <h1>Search For Rent</h1>
         <label>Location</label>&nbsp;<label> Boshundhora</label> &nbsp; <label>Block</label><input type="text"> &nbsp;<label>Road</label> <input type="text">
         <table border="1">
@@ -71,7 +71,8 @@
      
             </tr>
         </table>
-        <a href = "homeseeker.html">Back</a>
+        <a href = "homeseeker.php">Back</a>
         </div>
+		</section>
     </body>
 </html>

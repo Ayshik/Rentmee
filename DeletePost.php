@@ -1,7 +1,7 @@
-<html>
-    <head>
-    </head>
-    <body>
+<?php
+include('Ownerheader/ownerhead.php');
+?>
+<section>
         <div align ="center">
             <h1>
                 MY POSTS
@@ -74,5 +74,6 @@
             </table>
             <a href = "owner.html">Back</a>
         </div>
+		</section>
     </body>
 </html>
