@@ -227,7 +227,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
       $row=mysqli_fetch_assoc($result);
       $_SESSION["loggedinuser"]=$row["username"];
 
-      header("Location:modarator.html");
+      header("Location:modarator.php");
     }
     else
     {
