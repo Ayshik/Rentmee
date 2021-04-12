@@ -49,16 +49,16 @@ setcookie("cook",time()+3600);
           <a href="admin.php"><i class="fas fa-qrcode"></i>Dashboard</a>
         </li>
         <li>
-          <a href=""><i class="fas fa-link">House Owner Info</i></a>
+          <a href="ownerinfo.php"><i class="fas fa-link">House Owner Info</i></a>
         </li>
         <li>
-          <a href=""><i class="fas fa-stream"></i>Home Seeker Info</a>
+          <a href="homeseekerinfo.php"><i class="fas fa-stream"></i>Home Seeker Info</a>
         </li>
         <li>
-          <a href=""><i class="fas fa-calendar-week"></i>Add Moderator</a>
+          <a href="Signupmodaretor.php"><i class="fas fa-calendar-week"></i>Add Moderator</a>
         </li>
 		 <li>
-          <a href=""><i class="fas fa-calendar-week"></i>View Moderator</a>
+          <a href="modaretorinfo.php"><i class="fas fa-calendar-week"></i>View Moderator</a>
         </li>
       </ul>
     </div>

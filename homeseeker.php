@@ -1,6 +1,6 @@
 
 <?php
-include('Homeseekerheader/homeseekerheader.php');
+include('Adminheader/adminhead.php');
 ?>
 
 
