@@ -88,7 +88,7 @@ include('Ownerheader/ownerhead.php');
         <td><input type="file"></td>
     </tr> 
     <tr>
-        <td><a href="owner.html">Back</a></td>
+        <td><a href="owner.php">Back</a></td>
         <td><input type="submit" value="Post"></td>
     </tr>
 </table></center> 

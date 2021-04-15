@@ -1,8 +1,25 @@
 <?php
+session_start();
+
 include "db_connect.php";
-$name=$email=$uname=$pass=$conf_pass=$phone=$address="";
+$name=$email=$uname=$pass=$conf_pass=$phone=$address=$old_pass_db="";
 $name_err=$email_err=$pass_err=$uname_err=$phn_err=$add_err=$conf_pass_err="";
 $flag = 1;
+$user_name = $_SESSION['loggedinuser'];
+if(isset($_SESSION['loggedinuser']))
+{
+    
+    //populate textfield from db value
+    $sql = "select * from modarator where username='$user_name'";
+    $result = mysqli_query($con,$sql);
+    while($row = mysqli_fetch_assoc($result))
+    {
+        $name  = $row['name'];
+        $email = $row['email'];
+        $phone = $row['phone'];
+        $address = $row['address'];
+        $old_pass_db= $row['Password'];
+    }
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
   if(isset($_POST['update']))
@@ -22,28 +39,21 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }else{
       $email=$_POST['Email'];
     }
-    if(empty($_POST['uname']))
+    
+    if(empty($_POST['old_pass']))
     {
-        $uname_err="USERNAME CAN NOT BE EMPTY";
-    $flag = 0;
-    }else{
-      $uname=$_POST['uname'];
-      $uname = strtoupper($uname); 
-    }
-    if(empty($_POST['pass']))
-    {
-        $pass_err="PASSWORD CAN NOT BE EMPTY";
+        $pass_err="OLD PASSWORD CAN NOT BE EMPTY";
     $flag = 0;
     }
     else{
-      $pass=$_POST['pass'];
+      $pass=$_POST['old_pass'];
     }
-    if(empty($_POST['con_pass']))
+    if(empty($_POST['new_pass']))
     {
-        $conf_pass_err="CONFIRM PASSWORD CAN NOT BE EMPTY";
+        $conf_pass_err="NEW PASSWORD CAN NOT BE EMPTY";
     $flag = 0;
     }else{
-      $conf_pass=$_POST['con_pass'];
+      $conf_pass=$_POST['new_pass'];
     }
     if(empty($_POST['phone']))
     {
@@ -59,33 +69,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }else{
       $address=$_POST['address'];
     }
-    if($pass != $conf_pass)
+    if($pass == $old_pass_db)
     {
-      $pass_err="PASSWORD AND CONFIRM PASSWORD DOES NOT MATCH";
+        $flag = 1;
+    if($pass == $conf_pass)
+    {
+      $pass_err="OLD PASSWORD AND NEW PASSWORD CAN NOT BE SAME";
       $flag = 0;
     }
-
+    }
+    else{
+        $pass_err="Password Does not match";
+      $flag = 0;
+    }
     if($flag)
     {
     $name=mysqli_real_escape_string($con,$name);
-    $pass=mysqli_real_escape_string($con,$pass);
+    $pass=mysqli_real_escape_string($con,$conf_pass);
     $email=mysqli_real_escape_string($con,$email);
-    $uname=mysqli_real_escape_string($con,$uname);
     $phone=mysqli_real_escape_string($con,$phone);
     $address=mysqli_real_escape_string($con,$address);
 
 
-    $sql="insert into modarator(username,password,name,phone,address,email) values('$uname','$pass','$name','$phone','$address','$email')";
+    $sql1="update modarator set name='$name' ,  email = '$email' , Password = '$pass' , phone = '$phone' , address = '$address' where username = '$user_name' ";
 
-    if (mysqli_query($con, $sql)) {
+    if (mysqli_query($con, $sql1)) {
+        echo '<script>alert("UPDATE SUCCESFUL")</script>';
     } else {
-      echo "user table Error: " . $sql . "<br>" . mysqli_error($con);
+      echo "user table Error: " . $sql1 . "<br>" . mysqli_error($con);
     }
-}      
+    }      
+}
 }
 }
 
-include('Adminheader/adminhead.php');
+include('Moderatorheader/moderatorhead.php');
 ?>
 <style>
 
@@ -160,19 +178,23 @@ include('Adminheader/adminhead.php');
 </style>
 <form class="box" action="" method="post"> 
       <h1>Modaretor Profile Update</h1>
-      <input type="text" name="uname" placeholder="User Name" value="<?php echo $uname;?>"/>
-      <p><?php echo $uname_err;?></p>
+      <p style = "color: Yellow;">Name</p>
       <input type="text" name="name" placeholder="Full Name" value="<?php echo $name;?>"/>
       <p><?php echo $name_err;?></p>
+      <p style = "color: Yellow;">Phone Number</p>
       <input type="text" name="phone" placeholder="Phone Number"value="<?php echo $phone;?>">
       <p><?php echo $phn_err;?></p>
+      <p style = "color: Yellow;">Email</p>
       <input type="text" name="Email" placeholder="Email"value="<?php echo $email;?>">
       <p><?php echo $email_err;?></p>
+      <p style = "color: Yellow;">Address</p>
       <input type="text" name="address" placeholder="Address" value="<?php echo $address;?>"/>
       <p><?php echo $add_err;?></p>
-      <input type="password" name="pass" placeholder="Password" />
+      <p style = "color: Yellow;">Old Password</p>
+      <input type="password" name="old_pass" placeholder="Old Password" />
       <p><?php echo $pass_err;?></p>
-      <input type="password" name="con_pass" placeholder="Confirm Password" />	
+      <p style = "color: Yellow;">New Password</p>
+      <input type="password" name="new_pass" placeholder="New Password" />	
       <p><?php echo $conf_pass_err;?></p>
       <input type="submit" name="update" value="Update" />
     </form>

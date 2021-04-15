@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2021 at 06:23 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Apr 16, 2021 at 01:43 AM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -62,7 +61,7 @@ CREATE TABLE `booking` (
   `ospace` varchar(10) NOT NULL,
   `hour` varchar(10) NOT NULL,
   `cost` varchar(100) NOT NULL,
-  `Date&Time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Date&Time` timestamp NOT NULL DEFAULT current_timestamp(),
   `Status` varchar(200) NOT NULL,
   `ReleaseTime` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -108,10 +107,11 @@ CREATE TABLE `homeseeker` (
 --
 
 INSERT INTO `homeseeker` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
-(0, 'AYSHIK112', 'ayshikmee@gmail.com', '876543', 'Northern Ireland,Ballycarry', '@Ayshik1234', 'active', '12345678', 'Ayshik Khan'),
+(1, 'A', 'a.@d.fg', '1', 'a', 'a', 'active', '1', 'a'),
 (2, 'Rohan01', '', '01723456789', 'Basundhara', '1234', 'Active', '13123425343463463567', 'Rohan Rashid'),
 (3, 'Ayshik000', 'Ayshikmee@gmail.com', '017933240820', 'Ayshik111', '@Ayshikmee1234', 'Active', '12345678909876432', 'Ayshik Khan yah'),
-(4, 'Rohan23', 'hasemmama@gmail.com', '01633075341', 'Basundhara', '@Ayshikmee1234', 'Active', '123456788543256', 'Rohan Khan');
+(4, 'Rohan23', 'hasemmama@gmail.com', '01633075341', 'Basundhara', '@Ayshikmee1234', 'Active', '123456788543256', 'Rohan Khan'),
+(5, 'B', 'b@dd.cc', '1', 'b', 'b', 'active', '55241237', 'b');
 
 -- --------------------------------------------------------
 
@@ -123,15 +123,19 @@ CREATE TABLE `modarator` (
   `sl` int(50) NOT NULL,
   `username` varchar(100) NOT NULL,
   `Password` varchar(100) NOT NULL,
-  `type` varchar(100) NOT NULL
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `email` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `modarator`
 --
 
-INSERT INTO `modarator` (`sl`, `username`, `Password`, `type`) VALUES
-(1, 'Mehedi', '123', 'Moderator');
+INSERT INTO `modarator` (`sl`, `username`, `Password`, `name`, `phone`, `address`, `email`) VALUES
+(1, 'Mehedi', '123', 'mehedi hasan', 'a', 'a', 'a'),
+(2, 'A', 'a', 'a', 'a', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -140,27 +144,23 @@ INSERT INTO `modarator` (`sl`, `username`, `Password`, `type`) VALUES
 --
 
 CREATE TABLE `owner` (
-  `sl` int(50) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `phone` varchar(100) NOT NULL,
-  `Address` varchar(300) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `status` varchar(100) NOT NULL,
-  `nid` varchar(100) NOT NULL,
-  `Name` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `sl` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `Address` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `status` varchar(10) NOT NULL,
+  `nid` varchar(30) NOT NULL,
+  `Name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `owner`
 --
 
 INSERT INTO `owner` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
-(1, 'ayshik', 'Aysh@gmail.com', '017933240820', 'Dhaka', '1234', 'Active', '4', 'Ayshik boss'),
-(6, 'Ayshik112', 'ayshikmee@gmail.com', '01775503498', 'Kuril', '@Ayshik1234', 'Active', '6', 'Ayshik Khan'),
-(7, 'Saif112', 'Ayshik@gmail.com', '01633075341', 'Basundhara', '@Saif112', 'Inactive', '7', 'Kuddus'),
-(8, 'Rohan', 'rohan@gmail.com', '01712345678', 'Basundhara,Dhaka, Mujib Sarak,sirajgonj', '123', 'Active', '1', 'Rohan Rashid Dip'),
-(9, 'AYSHIK112', 'ayshikmee@gmail.com', '01775503498', 'Northern Ireland,Ballycarry', '123321123', 'active', '123456543456', 'Ayshik Khan');
+(1, 'A', 'a.@d.fg', '1', 'a', 'a', 'active', '1', 'a');
 
 -- --------------------------------------------------------
 
@@ -199,7 +199,7 @@ CREATE TABLE `reportbox` (
   `receiver` varchar(100) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `message` varchar(400) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `usertype` varchar(50) NOT NULL,
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -277,16 +277,22 @@ ALTER TABLE `booking`
   MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT for table `homeseeker`
+--
+ALTER TABLE `homeseeker`
+  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT for table `modarator`
 --
 ALTER TABLE `modarator`
-  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `prequest`

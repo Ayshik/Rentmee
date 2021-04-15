@@ -1,6 +1,5 @@
 <?php
-session_start();
-setcookie("cook",time()+3600);
+
 
 ?>
 
@@ -10,7 +9,7 @@ setcookie("cook",time()+3600);
     <meta charset="utf-8" />
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="Modaratorheader/sample.css" />
+    <link rel="stylesheet" href="Moderatorheader/sample.css" />
     <link
     href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic"
     rel="stylesheet"
@@ -29,7 +28,7 @@ setcookie("cook",time()+3600);
             <h3><a herf="parkerarea.php">Rent me</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Modarator</h1>
+            <h1>Welcome Moderator</h1>
             <div class="rightmenu">
              <button id="buttonone" < onclick="window.location.href='logout.php';">
                 Logout
@@ -46,16 +45,16 @@ setcookie("cook",time()+3600);
       <header>Modaretor Dashboadr</header>
       <ul>
         <li>
-          <a href="modaretor.php"><i class="fas fa-qrcode"></i>Dashboard</a>
+          <a href="moderator.php"><i class="fas fa-qrcode"></i>Dashboard</a>
         </li>
         <li>
-          <a href=""><i class="fas fa-link"></i>View Request</a>
+          <a href="ViewRequest.php"><i class="fas fa-link"></i>View Request</a>
         </li>
         <li>
-          <a href=""><i class="fas fa-stream"></i>Report Box</a>
+          <a href="ReportBox.php"><i class="fas fa-stream"></i>Report Box</a>
         </li>
         <li>
-          <a href=""><i class="fas fa-calendar-week"></i>Profile Update</a>
+          <a href="ProfileUpdateMod.php"><i class="fas fa-calendar-week"></i>Profile Update</a>
         </li>
       </ul>
     </div>

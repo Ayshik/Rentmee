@@ -1,6 +1,6 @@
 
 <?php
-include('Modaratorheader/modaratorhead.php');
+include('Moderatorheader/moderatorhead.php');
 ?>
 <section>
 </section>
