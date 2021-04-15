@@ -220,14 +220,14 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
   }
   if(!$has_error)
   {
-    $query = "SELECT username from modarator where username='$uname' and password='$psw' and type='Moderator'";
+    $query = "SELECT username from modarator where username='$uname' and password='$psw'";
     $result = mysqli_query($con, $query);
     if(mysqli_num_rows($result) > 0)
     {
       $row=mysqli_fetch_assoc($result);
       $_SESSION["loggedinuser"]=$row["username"];
 
-      header("Location:modaretor.php");
+      header("Location:moderator.php");
     }
     else
     {
