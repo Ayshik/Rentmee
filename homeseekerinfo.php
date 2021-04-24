@@ -2,8 +2,8 @@
 session_start();
 include('db_connect.php');
 include('Adminheader/adminhead.php');
-
-
+if(isset($_SESSION["loggedinuser"]))
+{
 
 ?>
 <style>
@@ -180,3 +180,9 @@ h2{
 </div></section>
   </body>
 </html>
+<?php }
+else
+{
+    header("location:login.php");
+}
+?>
