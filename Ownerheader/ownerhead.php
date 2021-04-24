@@ -58,7 +58,7 @@ setcookie("cook",time()+3600);//1 hour cookie
           <a href="AppliedList.php"><i class="fas fa-stream"></i>Home-Seeker List</a>
         </li>
         <li>
-          <a href="MyProfile.php"><i class="fas fa-calendar-week"></i>Profile Update</a>
+          <a href="ProfileUpdateOwner.php"><i class="fas fa-calendar-week"></i>Profile Update</a>
         </li>
       </ul>
     </div>

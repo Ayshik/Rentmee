@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 setcookie("cook",time()+3600);
 
 ?>
@@ -58,7 +58,7 @@ setcookie("cook",time()+3600);
           <a href="Signupmodaretor.php"><i class="fas fa-calendar-week"></i>Add Moderator</a>
         </li>
 		 <li>
-          <a href="modaretorinfo.php"><i class="fas fa-calendar-week"></i>View Moderator</a>
+          <a href="moderatorinfo.php"><i class="fas fa-calendar-week"></i>View Moderator</a>
         </li>
       </ul>
     </div>

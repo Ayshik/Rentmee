@@ -4,7 +4,7 @@ include('Homeseekerheader/homeseekerheader.php');
     <section>  
 	  <div align = "center">
             <h1>Search For Rent</h1>
-        <label>Location</label>&nbsp;<label> Boshundhora</label> &nbsp; <label>Block</label><input type="text"> &nbsp;<label>Road</label> <input type="text">
+        <label>Location</label>&nbsp;<label> Boshundhora</label> &nbsp; <label>Block</label><input type="text"> 
         <table border="1">
             <tr>
                 <th>Rooms</th>
@@ -35,7 +35,7 @@ include('Homeseekerheader/homeseekerheader.php');
                 <td>15</td>
                 <td>G</td>
                 <td>20000</td>
-                <td><a href="">Confirm</a></td>
+                <td><a href=""></a></td>
                
             </tr>
             <tr>
@@ -51,7 +51,7 @@ include('Homeseekerheader/homeseekerheader.php');
                 <td>10</td>
                 <td>B</td>
                 <td>30000</td>
-                <td><a href="">Confirm</a></td>
+                <td><a href=""></a></td>
             
             </tr>
             <tr>
@@ -67,7 +67,7 @@ include('Homeseekerheader/homeseekerheader.php');
                 <td>18</td>
                 <td>H</td>
                 <td>40000</td>
-                <td><a href="">Confirm</a></td>
+                <td><a href=""></a></td>
      
             </tr>
         </table>

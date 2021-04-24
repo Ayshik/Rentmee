@@ -1,6 +1,5 @@
 <?php
-session_start();
-setcookie("cook",time()+3600);
+
 
 ?>
 

@@ -1,5 +1,11 @@
 <?php
+session_start();
+include('db_connect.php');
 include('Adminheader/adminhead.php');
+
+if(isset($_SESSION["loggedinuser"]))
+{
+
 ?>
 <style>
 *{
@@ -141,171 +147,41 @@ h2{
     <table class="fl-table">
         <thead>
         <tr>
-            <th>Sl</th>
+            <th>Serial</th>
             <th>User Name</th>
-			<th>Full Name</th>
-             <th>Gender</th>
-            <th>Phone</th>
 			<th>Email</th>
+            <th>Phone</th>
             <th>Address</th>
-			 
-			
-			
+            <th>NAME</th>
+            <th>ACTION</th>
         </tr>
         </thead>
+
         <tbody>
+         
+        <?php       
+        $sql = "select * from modarator";
+        $result = mysqli_query($con,$sql);
+        foreach($result as $info)
+        {?>
         <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		 <tr>
-            <td>1</td>
-            <td>Kuddus Miah</td>
-			<td>Abdul Hamid</td>
-			<td>Male</td>
-			 <td>0188765443</td>
-            <td>Kuddus@gmail.com</td>
-           
-            <td>Dhaka</td>
-			
-			
-			
-        </tr>
-		
-       
-       
-       
-        
-       
-        <tbody>
+            <td><?php echo $info["sl"];?></td> 
+            <td><?php echo $info["username"];?></td>
+            <td><?php echo $info["email"];?></td>        
+            <td><?php echo $info["phone"];?></td>        
+            <td><?php echo $info["address"];?></td>                    
+            <td><?php echo $info["name"];?></td>
+            <td><a href = "moderatorinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
+        </tr>        
+        <?php } ?>
+ <tbody>
     </table>
 </div></section>
   </body>
 </html>
+<?php }
+else
+{
+    header("location:login.php");
+}
+?>
