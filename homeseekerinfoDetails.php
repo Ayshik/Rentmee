@@ -177,7 +177,7 @@ h2{
        <tr><th>NAME</th></tr>
        <tr><th><?php echo $row['Name'];?></th></tr>
        <tr><th><form method="POST"><input type= "submit" value = "Delete" name = "delete"></form></th></tr>
-       <tr><th><a href = "ownerinfo.php">BACK</a></th></tr>     
+       <tr><th><a href = "homeseekerinfo.php">BACK</a></th></tr>     
  <tbody>
 
     </table>

@@ -78,6 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $sql="insert into modarator(username,password,name,phone,address,email) values('$uname','$pass','$name','$phone','$address','$email')";
 
     if (mysqli_query($con, $sql)) {
+      header("location: admin.php");
     } else {
       echo "user table Error: " . $sql . "<br>" . mysqli_error($con);
     }

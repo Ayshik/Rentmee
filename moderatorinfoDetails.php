@@ -4,7 +4,17 @@ include('db_connect.php');
 include('Adminheader/adminhead.php');
 
 
+if(isset($_POST['delete']))
+{
+    $a = $_GET['sl'];
+    $sql1 = "DELETE FROM modarator WHERE sl = '$a' ";
 
+if (mysqli_query($con, $sql1)) {
+  header("location:moderatorinfo.php");
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+}
 ?>
 <style>
 *{
@@ -144,36 +154,30 @@ h2{
 
 <section><div class="table-wrapper">
     <table class="fl-table">
-        <thead>
-        <tr>
-            <th>Serial</th>
-            <th>User Name</th>
-			<th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>NAME</th>
-            <th>ACTION</th>
-        </tr>
-        </thead>
-
         <tbody>
          
-        <?php       
-        $sql = "select * from modarator";
+        <?php
+        $sl = $_GET['sl'];       
+        $sql = "select * from modarator where sl = '$sl'";
         $result = mysqli_query($con,$sql);
-        foreach($result as $info)
-        {?>
-        <tr>
-            <td><?php echo $info["sl"];?></td> 
-            <td><?php echo $info["username"];?></td>
-            <td><?php echo $info["email"];?></td>        
-            <td><?php echo $info["phone"];?></td>        
-            <td><?php echo $info["address"];?></td>                    
-            <td><?php echo $info["name"];?></td>
-            <td><a href = "moderatorinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
-        </tr>        
-        <?php } ?>
+        $row = mysqli_fetch_assoc($result);
+       ?>
+       <tr><th>SERIAL</th></tr>
+       <tr><th><?php echo $sl;?></th></tr>
+       <tr><th>USER NAME</th></tr>
+       <tr><th><?php echo $row['username'];?></th></tr>
+       <tr><th>EMAIL</th></tr>
+       <tr><th><?php echo $row['email'];?></th></tr>
+       <tr><th>PHONE</th></tr>
+       <tr><th><?php echo $row['phone'];?></th></tr>
+       <tr><th>ADDRESS</th></tr>
+       <tr><th><?php echo $row['address'];?></th></tr>
+       <tr><th>NAME</th></tr>
+       <tr><th><?php echo $row['name'];?></th></tr>
+       <tr><th><form method="POST"><input type= "submit" value = "Delete" name = "delete"></form></th></tr>
+       <tr><th><a href = "moderatorinfo.php">BACK</a></th></tr>     
  <tbody>
+
     </table>
 </div></section>
   </body>
