@@ -4,6 +4,28 @@ include('db_connect.php');
 include('Moderatorheader/moderatorhead.php');
 if(isset($_SESSION["loggedinuser"]))
 {
+if(isset($_POST['delete']))
+{
+    $a = $_GET['sl'];
+    $sql1 = "DELETE FROM post WHERE sl = '$a' ";
+
+if (mysqli_query($con, $sql1)) {
+  header("location:ViewRequest.php");
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+}
+if(isset($_POST['approve']))
+{
+    $a = $_GET['sl'];
+    $sql2 = "update post set status='1' where sl ='$a'";
+
+if (mysqli_query($con, $sql2)) {
+  header("location:ViewRequest.php");
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+}
 ?>
 <style>
 *{
@@ -143,37 +165,55 @@ h2{
 
 <section><div class="table-wrapper">
     <table class="fl-table">
-        <thead>
-        <tr>
-            <th>Serial</th>
-            <th>Category</th>
-			<th>Room</th>
-            <th>Floor</th>
-            <th>Lift</th>
-            <th>Rent</th>
-            <th>Block</th>
-            <th>road</th>
-        </tr>
-        </thead>
-
         <tbody>
-         
-        <?php       
-        $sql = "select * from post where status = '0' ";
+        <?php
+        $sl = $_GET['sl'];       
+        $sql = " select * from post where sl = '$sl' ";
         $result = mysqli_query($con,$sql);
-        foreach($result as $info)
-        {?>
-        <tr>
-            <td><?php echo $info["sl"];?></td> 
-            <td><?php echo $info["category"];?></td>
-            <td><?php echo $info["room"];?></td>        
-            <td><?php echo $info["floor"];?></td>        
-            <td><?php echo $info["lift"];?></td>                    
-            <td><?php echo $info["block"];?></td> 
-            <td><?php echo $info["road"];?></td>
-            <td><a href = "requestinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
-        </tr>        
-        <?php } ?>
+        $row = mysqli_fetch_assoc($result);
+       ?>
+       <tr><th>SERIAL</th></tr>
+       <tr><th><?php echo $sl;?></th></tr>
+       <tr><th>Category</th></tr>
+       <tr><th><?php echo $row['category'];?></th></tr>
+       <tr><th>Room</th></tr>
+       <tr><th><?php echo $row['room'];?></th></tr>
+       <tr><th>Bedroom</th></tr>
+       <tr><th><?php echo $row['bedroom'];?></th></tr>
+       <tr><th>Dining</th></tr>
+       <tr><th><?php echo $row['dining'];?></th></tr>
+       <tr><th>Drawing</th></tr>
+       <tr><th><?php echo $row['drawing'];?></th></tr>
+       <tr><th>Attach Bathroom</th></tr>
+       <tr><th><?php echo $row['attachbathroom'];?></th></tr>
+       <tr><th>Common Bathroom</th></tr>
+       <tr><th><?php echo $row['commonbathroom'];?></th></tr>
+       <tr><th>Balcony</th></tr>
+       <tr><th><?php echo $row['balcony'];?></th></tr>
+       <tr><th>Floor</th></tr>
+       <tr><th><?php echo $row['floor'];?></th></tr>
+       <tr><th>Lift</th></tr>
+       <tr><th><?php echo $row['lift'];?></th></tr>
+       <tr><th>Block</th></tr>
+       <tr><th><?php echo $row['block'];?></th></tr>
+       <tr><th>Road</th></tr>
+       <tr><th><?php echo $row['road'];?></th></tr>
+       <tr><th>Rent</th></tr>
+       <tr><th><?php echo $row['rent'];?></th></tr>
+       <tr><th>Owner</th></tr>
+       <tr><th><?php echo $row['owner'];?></th></tr>
+       <tr><th>Photo 1</th></tr>
+       <tr><th><?php echo $row['photo1'];?></th></tr>
+       <tr><th>Photo 2</th></tr>
+       <tr><th><?php echo $row['photo2'];?></th></tr>
+       <tr><th>Photo 3</th></tr>
+       <tr><th><?php echo $row['photo3'];?></th></tr>
+       <tr><th>Photo 4</th></tr>
+       <tr><th><?php echo $row['photo4'];?></th></tr>
+            
+       <tr><th><form method="POST"><input type= "submit" value = "Delete" name = "delete"></th></tr>
+       <tr><th><input type= "submit" value = "Approve" name = "approve"></form></th></tr>
+       <tr><th><a href = "ViewRequest.php">BACK</a></th></tr>     
  <tbody>
     </table>
 </div></section>

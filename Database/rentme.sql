@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 25, 2021 at 10:30 PM
+-- Generation Time: Apr 26, 2021 at 12:55 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -177,15 +177,16 @@ CREATE TABLE `post` (
   `photo2` varchar(100) NOT NULL,
   `photo3` varchar(100) NOT NULL,
   `photo4` varchar(100) NOT NULL,
-  `status` varchar(5) NOT NULL
+  `status` varchar(5) NOT NULL,
+  `owner` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`sl`, `category`, `room`, `bedroom`, `dining`, `drawing`, `attachbathroom`, `commonbathroom`, `balcony`, `floor`, `lift`, `block`, `road`, `rent`, `photo1`, `photo2`, `photo3`, `photo4`, `status`) VALUES
-(1, 'family', 5, 2, 1, 5, 5, 5, 4, 5, 'available', 'A', '14', '15000', 'null', 'null', 'null', 'null', '0');
+INSERT INTO `post` (`sl`, `category`, `room`, `bedroom`, `dining`, `drawing`, `attachbathroom`, `commonbathroom`, `balcony`, `floor`, `lift`, `block`, `road`, `rent`, `photo1`, `photo2`, `photo3`, `photo4`, `status`, `owner`) VALUES
+(1, 'family', 5, 2, 1, 5, 5, 5, 4, 5, 'available', 'A', '14', '15000', 'null', 'null', 'null', 'null', '1', '');
 
 -- --------------------------------------------------------
 
