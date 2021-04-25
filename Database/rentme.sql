@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 16, 2021 at 01:43 AM
+-- Generation Time: Apr 25, 2021 at 10:30 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -107,11 +107,8 @@ CREATE TABLE `homeseeker` (
 --
 
 INSERT INTO `homeseeker` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
-(1, 'A', 'a.@d.fg', '1', 'a', 'a', 'active', '1', 'a'),
-(2, 'Rohan01', '', '01723456789', 'Basundhara', '1234', 'Active', '13123425343463463567', 'Rohan Rashid'),
 (3, 'Ayshik000', 'Ayshikmee@gmail.com', '017933240820', 'Ayshik111', '@Ayshikmee1234', 'Active', '12345678909876432', 'Ayshik Khan yah'),
-(4, 'Rohan23', 'hasemmama@gmail.com', '01633075341', 'Basundhara', '@Ayshikmee1234', 'Active', '123456788543256', 'Rohan Khan'),
-(5, 'B', 'b@dd.cc', '1', 'b', 'b', 'active', '55241237', 'b');
+(4, 'Rohan23', 'hasemmama@gmail.com', '01633075341', 'Basundhara', '@Ayshikmee1234', 'Active', '123456788543256', 'Rohan Khan');
 
 -- --------------------------------------------------------
 
@@ -135,7 +132,7 @@ CREATE TABLE `modarator` (
 
 INSERT INTO `modarator` (`sl`, `username`, `Password`, `name`, `phone`, `address`, `email`) VALUES
 (1, 'Mehedi', '123', 'mehedi hasan', 'a', 'a', 'a'),
-(2, 'A', 'a', 'a', 'a', 'a', 'a');
+(3, 'T', 'a', 'a', 'a', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -155,12 +152,40 @@ CREATE TABLE `owner` (
   `Name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `owner`
+-- Table structure for table `post`
 --
 
-INSERT INTO `owner` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
-(1, 'A', 'a.@d.fg', '1', 'a', 'a', 'active', '1', 'a');
+CREATE TABLE `post` (
+  `sl` int(11) NOT NULL,
+  `category` varchar(20) NOT NULL,
+  `room` int(10) NOT NULL,
+  `bedroom` int(10) NOT NULL,
+  `dining` int(10) NOT NULL,
+  `drawing` int(10) NOT NULL,
+  `attachbathroom` int(10) NOT NULL,
+  `commonbathroom` int(10) NOT NULL,
+  `balcony` int(10) NOT NULL,
+  `floor` int(10) NOT NULL,
+  `lift` varchar(10) NOT NULL,
+  `block` varchar(10) NOT NULL,
+  `road` varchar(10) NOT NULL,
+  `rent` varchar(15) NOT NULL,
+  `photo1` varchar(100) NOT NULL,
+  `photo2` varchar(100) NOT NULL,
+  `photo3` varchar(100) NOT NULL,
+  `photo4` varchar(100) NOT NULL,
+  `status` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`sl`, `category`, `room`, `bedroom`, `dining`, `drawing`, `attachbathroom`, `commonbathroom`, `balcony`, `floor`, `lift`, `block`, `road`, `rent`, `photo1`, `photo2`, `photo3`, `photo4`, `status`) VALUES
+(1, 'family', 5, 2, 1, 5, 5, 5, 4, 5, 'available', 'A', '14', '15000', 'null', 'null', 'null', 'null', '0');
 
 -- --------------------------------------------------------
 
@@ -249,6 +274,12 @@ ALTER TABLE `owner`
   ADD PRIMARY KEY (`sl`);
 
 --
+-- Indexes for table `post`
+--
+ALTER TABLE `post`
+  ADD PRIMARY KEY (`sl`);
+
+--
 -- Indexes for table `prequest`
 --
 ALTER TABLE `prequest`
@@ -286,12 +317,18 @@ ALTER TABLE `homeseeker`
 -- AUTO_INCREMENT for table `modarator`
 --
 ALTER TABLE `modarator`
-  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `post`
+--
+ALTER TABLE `post`
   MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
