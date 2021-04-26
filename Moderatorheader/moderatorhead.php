@@ -48,7 +48,7 @@
           <a href="ViewRequest.php"><i class="fas fa-link"></i>View Request</a>
         </li>
         <li>
-          <a href="ReportBox.php"><i class="fas fa-stream"></i>Report Box</a>
+          <a href="allreport.php"><i class="fas fa-stream"></i>Report Box</a>
         </li>
         <li>
           <a href="ProfileUpdateMod.php"><i class="fas fa-calendar-week"></i>Profile Update</a>

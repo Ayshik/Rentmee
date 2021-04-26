@@ -56,9 +56,14 @@
         <li>
           <a href="ConfirmedByOwner.php"><i class="fas fa-calendar-week"></i>Confirmation</a>
         </li>
-		<li>
+		    <li>
           <a href="MyProfile2.php"><i class="fas fa-calendar-week"></i>Profile Update</a>
         </li>
+        
+        <li>
+          <a href="Reportbyseeker.php"><i class="fas fa-calendar-week"></i>Report</a>
+        </li>
+
       </ul>
     </div>
   

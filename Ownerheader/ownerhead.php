@@ -1,9 +1,4 @@
-<?php
-session_start();
 
-setcookie("cook",time()+3600);//1 hour cookie
-
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -59,6 +54,9 @@ setcookie("cook",time()+3600);//1 hour cookie
         </li>
         <li>
           <a href="ProfileUpdateOwner.php"><i class="fas fa-calendar-week"></i>Profile Update</a>
+        </li>
+        <li>
+          <a href="Reportbyowner.php"><i class="fas fa-calendar-week"></i>Report</a>
         </li>
       </ul>
     </div>

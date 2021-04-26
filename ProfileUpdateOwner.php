@@ -14,11 +14,11 @@ if(isset($_SESSION['loggedinuser']))
     $result = mysqli_query($con,$sql);
     while($row = mysqli_fetch_assoc($result))
     {
-        $name  = $row['name'];
+        $name  = $row['Name'];
         $email = $row['email'];
         $phone = $row['phone'];
-        $address = $row['address'];
-        $old_pass_db= $row['Password'];
+        $address = $row['Address'];
+        $old_pass_db= $row['password'];
     }
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {

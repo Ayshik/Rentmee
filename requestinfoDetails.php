@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('db_connect.php');
-include('Moderatorheader/moderatorhead.php');
+include('Ownerheader/ownerhead.php');
 if(isset($_SESSION["loggedinuser"]))
 {
 if(isset($_POST['delete']))
@@ -10,22 +10,12 @@ if(isset($_POST['delete']))
     $sql1 = "DELETE FROM post WHERE sl = '$a' ";
 
 if (mysqli_query($con, $sql1)) {
-  header("location:ViewRequest.php");
+  header("location:DeletePost.php");
 } else {
   echo "Error deleting record: " . mysqli_error($conn);
 }
 }
-if(isset($_POST['approve']))
-{
-    $a = $_GET['sl'];
-    $sql2 = "update post set status='1' where sl ='$a'";
 
-if (mysqli_query($con, $sql2)) {
-  header("location:ViewRequest.php");
-} else {
-  echo "Error deleting record: " . mysqli_error($conn);
-}
-}
 ?>
 <style>
 *{
@@ -212,8 +202,7 @@ h2{
        <tr><th><?php echo $row['photo4'];?></th></tr>
             
        <tr><th><form method="POST"><input type= "submit" value = "Delete" name = "delete"></th></tr>
-       <tr><th><input type= "submit" value = "Approve" name = "approve"></form></th></tr>
-       <tr><th><a href = "ViewRequest.php">BACK</a></th></tr>     
+       <tr><th><a href = "DeletePost.php">BACK</a></th></tr>     
  <tbody>
     </table>
 </div></section>

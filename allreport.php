@@ -1,9 +1,12 @@
 <?php
 session_start();
 include('db_connect.php');
-include('Ownerheader/ownerhead.php');
+include('Moderatorheader/moderatorhead.php');
+
+
 if(isset($_SESSION["loggedinuser"]))
 {
+
 ?>
 <style>
 *{
@@ -146,33 +149,36 @@ h2{
         <thead>
         <tr>
             <th>Serial</th>
-            <th>Category</th>
-			<th>Room</th>
-            <th>Floor</th>
-            <th>Lift</th>
-            <th>Rent</th>
-            <th>Block</th>
-            <th>road</th>
+            <th>Sender</th>
+			<th>Reported User</th>
+            <th>Subject</th>
+            <th>Message</th>
+            <th>Date Time</th>
+            <th>Type Of User</th>
+            <th>ACTION</th>
+            <th>ACTION</th>
+
         </tr>
         </thead>
 
         <tbody>
          
-        <?php  
-        $a = $_SESSION["loggedinuser"];     
-        $sql = "select * from post where status = '1' and owner = '$a' ";
+        <?php       
+        $sql = "select * from reportbox where status = 1";
         $result = mysqli_query($con,$sql);
         foreach($result as $info)
         {?>
         <tr>
             <td><?php echo $info["sl"];?></td> 
-            <td><?php echo $info["category"];?></td>
-            <td><?php echo $info["room"];?></td>        
-            <td><?php echo $info["floor"];?></td>        
-            <td><?php echo $info["lift"];?></td>                    
-            <td><?php echo $info["block"];?></td> 
-            <td><?php echo $info["road"];?></td>
-            <td><a href = "requestinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
+            <td><?php echo $info["sender"];?></td>
+            <td><?php echo $info["receiver"];?></td>        
+            <td><?php echo $info["subject"];?></td>        
+            <td><?php echo $info["message"];?></td>                    
+            <td><?php echo $info["date"];?></td>
+            <td><?php echo $info["usertype"];?></td>
+            <td><a href = "reportoperation.php?sl=<?php echo $info["sl"];?>&name=del">Delete</a>
+            <td><a href = "reportoperation.php?sl=<?php echo $info["sl"];?>&name=read">Read</a>
+
         </tr>        
         <?php } ?>
  <tbody>
