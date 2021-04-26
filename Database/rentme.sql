@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2021 at 12:55 AM
+-- Generation Time: Apr 27, 2021 at 02:08 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -107,7 +107,7 @@ CREATE TABLE `homeseeker` (
 --
 
 INSERT INTO `homeseeker` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
-(3, 'Ayshik000', 'Ayshikmee@gmail.com', '017933240820', 'Ayshik111', '@Ayshikmee1234', 'Active', '12345678909876432', 'Ayshik Khan yah'),
+(3, 'a', 'Ayshikmee@gmail.com', '017933240820', 'Ayshik111', 'a', 'Active', '12345678909876432', 'Ayshik Khan yah'),
 (4, 'Rohan23', 'hasemmama@gmail.com', '01633075341', 'Basundhara', '@Ayshikmee1234', 'Active', '123456788543256', 'Rohan Khan');
 
 -- --------------------------------------------------------
@@ -152,6 +152,13 @@ CREATE TABLE `owner` (
   `Name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `owner`
+--
+
+INSERT INTO `owner` (`sl`, `username`, `email`, `phone`, `Address`, `password`, `status`, `nid`, `Name`) VALUES
+(2, 'w', 'w', '15195951', 'w', 'w', '1', '84198', 'wwww');
+
 -- --------------------------------------------------------
 
 --
@@ -186,7 +193,7 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`sl`, `category`, `room`, `bedroom`, `dining`, `drawing`, `attachbathroom`, `commonbathroom`, `balcony`, `floor`, `lift`, `block`, `road`, `rent`, `photo1`, `photo2`, `photo3`, `photo4`, `status`, `owner`) VALUES
-(1, 'family', 5, 2, 1, 5, 5, 5, 4, 5, 'available', 'A', '14', '15000', 'null', 'null', 'null', 'null', '1', '');
+(1, 'family', 5, 2, 1, 5, 5, 5, 4, 5, 'available', 'A', '14', '15000', 'null', 'null', 'null', 'null', '1', 'w');
 
 -- --------------------------------------------------------
 
@@ -235,10 +242,12 @@ CREATE TABLE `reportbox` (
 --
 
 INSERT INTO `reportbox` (`sl`, `sender`, `receiver`, `subject`, `message`, `date`, `usertype`, `status`) VALUES
-(1, 'Ayshik112', 'Admin', 'testing teacher', 'i know you love meeee ooooo loe me like you dooo ooo loe me like you do.', '2020-09-09 12:35:01', 'owner', 'Read'),
-(2, 'Ayshik112', 'Admin', 'testing teacher', 'tumi kon kanoner fullll kon kanoner ii....', '2020-09-09 18:33:02', 'Space Owner', 'Read'),
+(1, 'Ayshik112', 'Admin', 'testing teacher', 'i know you love meeee ooooo loe me like you dooo ooo loe me like you do.', '2020-09-09 12:35:01', 'owner', '0'),
 (3, 'Ayshik000', 'Admin', 'testing ch', 'o amar bondhu go chiro sathi poth chola tomar jonno', '2020-09-10 09:39:31', 'Parker', 'Unread'),
-(4, 'Rohan', 'Admin', 'Bhallagena', 'parker taka dey na. amr bhallagena. amr onnk tk lagbe. ', '2020-09-26 18:44:30', 'Space Owner', 'Unread');
+(4, 'Rohan', 'Admin', 'Bhallagena', 'parker taka dey na. amr bhallagena. amr onnk tk lagbe. ', '2020-09-26 18:44:30', 'Space Owner', '1'),
+(5, 'w', 'a', 'a', 'a', '2021-04-26 18:00:00', 'owner', '1'),
+(7, 'w', 'e', 'w', 'w', '2021-04-27 06:49:46', 'owner', '0'),
+(8, 'a', 'w', 'w', 'w', '2021-04-27 06:57:08', 'homeseeker', '1');
 
 --
 -- Indexes for dumped tables
@@ -324,7 +333,7 @@ ALTER TABLE `modarator`
 -- AUTO_INCREMENT for table `owner`
 --
 ALTER TABLE `owner`
-  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `post`
@@ -342,7 +351,7 @@ ALTER TABLE `prequest`
 -- AUTO_INCREMENT for table `reportbox`
 --
 ALTER TABLE `reportbox`
-  MODIFY `sl` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sl` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
