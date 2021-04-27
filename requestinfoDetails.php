@@ -25,7 +25,7 @@ if (mysqli_query($con, $sql1)) {
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-   
+
 }
 h2{
     text-align: center;
@@ -40,7 +40,7 @@ h2{
 
 .table-wrapper{
     margin: 10px 70px 70px;
-    
+
 }
 
 .fl-table {
@@ -150,60 +150,127 @@ h2{
     }
 }
 
+div.gallery {
+  margin: -32px;
+      border: 1px solid #ccc;
+      float: right;
+      width: 231px;
+      margin-top: 30px;
+      margin-right: 123px;
+      /* tab-size: 10px; */
+      /* -webkit-text-stroke-width: medium; */
+      color: #7e3ce7;
+      font-size: larger;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
 </style>
 
 <section><div class="table-wrapper">
     <table class="fl-table">
+      <thead>
+      <tr>
+          <th>Category</th>
+          <th>Room</th>
+    <th>Bedroom</th>
+          <th>Dining</th>
+          <th>Drawing</th>
+          <th>Attach Bathroom</th>
+          <th>Common Bathroom</th>
+          <th>Balcony</th>
+          <th>Floor</th>
+          <th>Lift</th>
+          <th>Block</th>
+          <th>Road</th>
+          <th>Rent</th>
+          <th>Owner</th>
+      </tr>
+      </thead>
+
+
         <tbody>
         <?php
-        $sl = $_GET['sl'];       
+        $sl = $_GET['sl'];
         $sql = " select * from post where sl = '$sl' ";
         $result = mysqli_query($con,$sql);
         $row = mysqli_fetch_assoc($result);
        ?>
-       <tr><th>SERIAL</th></tr>
-       <tr><th><?php echo $sl;?></th></tr>
-       <tr><th>Category</th></tr>
-       <tr><th><?php echo $row['category'];?></th></tr>
-       <tr><th>Room</th></tr>
-       <tr><th><?php echo $row['room'];?></th></tr>
-       <tr><th>Bedroom</th></tr>
-       <tr><th><?php echo $row['bedroom'];?></th></tr>
-       <tr><th>Dining</th></tr>
-       <tr><th><?php echo $row['dining'];?></th></tr>
-       <tr><th>Drawing</th></tr>
-       <tr><th><?php echo $row['drawing'];?></th></tr>
-       <tr><th>Attach Bathroom</th></tr>
-       <tr><th><?php echo $row['attachbathroom'];?></th></tr>
-       <tr><th>Common Bathroom</th></tr>
-       <tr><th><?php echo $row['commonbathroom'];?></th></tr>
-       <tr><th>Balcony</th></tr>
-       <tr><th><?php echo $row['balcony'];?></th></tr>
-       <tr><th>Floor</th></tr>
-       <tr><th><?php echo $row['floor'];?></th></tr>
-       <tr><th>Lift</th></tr>
-       <tr><th><?php echo $row['lift'];?></th></tr>
-       <tr><th>Block</th></tr>
-       <tr><th><?php echo $row['block'];?></th></tr>
-       <tr><th>Road</th></tr>
-       <tr><th><?php echo $row['road'];?></th></tr>
-       <tr><th>Rent</th></tr>
-       <tr><th><?php echo $row['rent'];?></th></tr>
-       <tr><th>Owner</th></tr>
-       <tr><th><?php echo $row['owner'];?></th></tr>
-       <tr><th>Photo 1</th></tr>
-       <tr><th><?php echo $row['photo1'];?></th></tr>
-       <tr><th>Photo 2</th></tr>
-       <tr><th><?php echo $row['photo2'];?></th></tr>
-       <tr><th>Photo 3</th></tr>
-       <tr><th><?php echo $row['photo3'];?></th></tr>
-       <tr><th>Photo 4</th></tr>
-       <tr><th><?php echo $row['photo4'];?></th></tr>
-            
+       <tr>
+
+
+           <td><?php echo $row['category'];?></td>
+
+           <td><?php echo $row['room'];?></td>
+
+           <td><?php echo $row['bedroom'];?></td>
+
+           <td><?php echo $row['dining'];?></td>
+
+           <td><?php echo $row['drawing'];?></td>
+
+        <td><?php echo $row['attachbathroom'];?></td>
+
+           <td><?php echo $row['commonbathroom'];?></td>
+
+           <td><?php echo $row['balcony'];?></td>
+
+           <td><?php echo $row['floor'];?></td>
+
+          <td><?php echo $row['lift'];?></td>
+
+           <td><?php echo $row['block'];?></td>
+
+          <td><?php echo $row['road'];?></td>
+
+          <td><?php echo $row['rent'];?></td>
+
+           <td><?php echo $row['owner'];?></td>
+     </tr>
+
+<!-- there will be 3 button view picture;approve;delete and back button will be common button-->
        <tr><th><form method="POST"><input type= "submit" value = "Delete" name = "delete"></th></tr>
-       <tr><th><a href = "DeletePost.php">BACK</a></th></tr>     
+       <tr><th><a href = "ViewRequest.php">BACK</a></th></tr>
  <tbody>
     </table>
 </div></section>
+<div class="gallery">
+  <a target="_blank" href="Picture/home.jpg">
+    <img src="Picture/home.jpg" alt="Cinque Terre" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="Picture/home.jpg">
+    <img src="Picture/home.jpg" alt="Forest" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="Picture/home.jpg">
+    <img src="Picture/home.jpg" alt="Northern Lights" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
+
+<div class="gallery">
+  <a target="_blank" href="Picture/home.jpg">
+    <img src="Picture/home.jpg" alt="Mountains" width="600" height="400">
+  </a>
+  <div class="desc">Add a description of the image here</div>
+</div>
   </body>
 </html>
