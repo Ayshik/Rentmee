@@ -16,6 +16,7 @@ if (!isLoggedIn()) {
     <title>Dashboard</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Moderatorheader/sample.css" />
+	<link rel="stylesheet" href="post.css" />
     <link
     href="http://fonts.googleapis.com/css?family=Montserrat:400,700%7CPT+Serif:400,700,400italic"
     rel="stylesheet"
