@@ -6,7 +6,9 @@ include('Homeseekerheader/homeseekerheader.php');
 
 if(isset($_POST['interested']))
 {
-    $a = $_GET['sl'];
+    $postsl = $_GET['sl'];
+    $seeker = $_SESSION['loggedinuser'];
+    
     $sql2 = "";
 
 if (mysqli_query($con, $sql2)) {
