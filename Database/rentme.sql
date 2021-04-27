@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2021 at 05:28 PM
+-- Generation Time: Apr 28, 2021 at 01:40 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -58,15 +58,9 @@ CREATE TABLE `applied` (
   `seeker` varchar(20) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `date` varchar(20) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `status` varchar(10) NOT NULL,
+  `ownerphone` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `applied`
---
-
-INSERT INTO `applied` (`sl`, `postsl`, `owner`, `seeker`, `phone`, `date`, `status`) VALUES
-(3, 3, 'w', 'a', '017933240820', '2021-04-27 05:26:24p', '1');
 
 -- --------------------------------------------------------
 
@@ -216,7 +210,7 @@ CREATE TABLE `post` (
 
 INSERT INTO `post` (`sl`, `category`, `room`, `bedroom`, `dining`, `drawing`, `attachbathroom`, `commonbathroom`, `balcony`, `floor`, `lift`, `block`, `road`, `rent`, `photo1`, `photo2`, `photo3`, `status`, `owner`) VALUES
 (1, 'family', 5, 2, 1, 5, 5, 5, 4, 5, 'available', 'A', '14', '15000', 'null', 'null', 'null', '0', 'w'),
-(3, 'Family', 14, 5, 2, 5, 2, 5, 2, 2, 'available', 'A', '5', '15000', 'null', 'null', 'null', '1', 'w');
+(3, 'Family', 14, 5, 2, 5, 2, 5, 2, 2, 'available', 'A', '5', '15000', 'Picture/HACKER.png', 'Picture/gg.png', 'Picture/see_me.jpg', '1', 'w');
 
 -- --------------------------------------------------------
 
@@ -344,7 +338,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `applied`
 --
 ALTER TABLE `applied`
-  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `booking`
