@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('Homeseekerheader/homeseekerheader.php');
 include 'db_connect.php';
 $report =$report_err = $subject = $subject_err = $message = $message_err = "";
 
@@ -22,14 +22,14 @@ if(isset($_SESSION['loggedinuser']))
         else{
           echo "error while reporting ".mysqli_error($con);
         }
-        
+
     }
 }
 else
 {
     header("Location:login.php");
 }
-include('Homeseekerheader/homeseekerheader.php');
+
 
 
 ?>
@@ -51,7 +51,7 @@ include('Homeseekerheader/homeseekerheader.php');
   font-weight: 500;
 }
 .box input[type="text"],
-.box input[type="password"] 
+.box input[type="password"]
 {
   border: 0;
   background: none;
@@ -66,7 +66,7 @@ include('Homeseekerheader/homeseekerheader.php');
   border-radius: 24px;
   transition: 0.25s;
 }
-.box p 
+.box p
 {
     border: 0;
   background: none;
@@ -104,7 +104,7 @@ include('Homeseekerheader/homeseekerheader.php');
 
 
 </style>
-<form class="box" action="" method="post"> 
+<form class="box" action="" method="post">
       <h1>Report To The Moderator</h1>
 
       <input type="text" name="report" placeholder="Reported User Name" value="<?php echo $report;?>"/>

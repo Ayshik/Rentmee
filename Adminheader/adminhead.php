@@ -1,6 +1,11 @@
 <?php
-
+session_start();
 setcookie("cook",time()+3600);
+include('session.php');
+if (!isLoggedIn()) {
+
+ header('location:login.php');
+}
 
 ?>
 
@@ -29,7 +34,7 @@ setcookie("cook",time()+3600);
             <h3><a herf="parkerarea.php">Rent me</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Admin</h1>
+            <h1>Welcome Admin~<?php echo $_SESSION["loggedinuser"];?></h1>
             <div class="rightmenu">
               <button id="buttonone" < onclick="window.location.href='logout.php';">
                 Logout
@@ -62,4 +67,3 @@ setcookie("cook",time()+3600);
         </li>
       </ul>
     </div>
-   

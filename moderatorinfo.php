@@ -3,8 +3,6 @@ session_start();
 include('db_connect.php');
 include('Adminheader/adminhead.php');
 
-if(isset($_SESSION["loggedinuser"]))
-{
 
 ?>
 <style>
@@ -16,7 +14,7 @@ if(isset($_SESSION["loggedinuser"]))
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-   
+
 }
 h2{
     text-align: center;
@@ -31,7 +29,7 @@ h2{
 
 .table-wrapper{
     margin: 10px 70px 70px;
-    
+
 }
 
 .fl-table {
@@ -140,11 +138,40 @@ h2{
         text-align: center;
     }
 }
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-right: 47%;
+}
 
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+#myInput {
+  background-image: url('https://www.w3schools.com/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 50%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+margin-bottom: 17px;
+    margin-top: 22px;
+    margin-left: 422px;
+
+}
 </style>
 
-<section><div class="table-wrapper">
-    <table class="fl-table">
+<section>
+
+ <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Modarator.." title="Type in a name">
+  <div class="table-wrapper">
+    <table id="myTable" class="fl-table">
         <thead>
         <tr>
             <th>Serial</th>
@@ -158,30 +185,45 @@ h2{
         </thead>
 
         <tbody>
-         
-        <?php       
+
+        <?php
         $sql = "select * from modarator";
         $result = mysqli_query($con,$sql);
         foreach($result as $info)
         {?>
         <tr>
-            <td><?php echo $info["sl"];?></td> 
+            <td><?php echo $info["sl"];?></td>
             <td><?php echo $info["username"];?></td>
-            <td><?php echo $info["email"];?></td>        
-            <td><?php echo $info["phone"];?></td>        
-            <td><?php echo $info["address"];?></td>                    
+            <td><?php echo $info["email"];?></td>
+            <td><?php echo $info["phone"];?></td>
+            <td><?php echo $info["address"];?></td>
             <td><?php echo $info["name"];?></td>
             <td><a href = "moderatorinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
-        </tr>        
+        </tr>
         <?php } ?>
  <tbody>
     </table>
 </div></section>
   </body>
 </html>
-<?php }
-else
-{
-    header("location:login.php");
+<script>
+ function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
 }
-?>
+
+        </script>

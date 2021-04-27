@@ -1,6 +1,12 @@
 <?php
-
 session_start();
+setcookie("cook",time()+3600);
+include('session.php');
+if (!isLoggedIn()) {
+
+ header('location:login.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +34,7 @@ session_start();
             <h3><a herf="parkerarea.php">Rent me</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Homeseeker</h1>
+            <h1>Welcome Homeseeker~<?php echo $_SESSION["loggedinuser"];?></h1>
             <div class="rightmenu">
              <button id="buttonone" < onclick="window.location.href='logout.php';">
                 Logout
@@ -59,11 +65,10 @@ session_start();
 		    <li>
           <a href="MyProfile2.php"><i class="fas fa-calendar-week"></i>Profile Update</a>
         </li>
-        
+
         <li>
           <a href="Reportbyseeker.php"><i class="fas fa-calendar-week"></i>Report</a>
         </li>
 
       </ul>
     </div>
-  

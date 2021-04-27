@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('Moderatorheader/moderatorhead.php');
 
 include "db_connect.php";
 $name=$email=$uname=$pass=$conf_pass=$phone=$address=$old_pass_db="";
@@ -8,7 +8,7 @@ $flag = 1;
 $user_name = $_SESSION['loggedinuser'];
 if(isset($_SESSION['loggedinuser']))
 {
-    
+
     //populate textfield from db value
     $sql = "select * from modarator where username='$user_name'";
     $result = mysqli_query($con,$sql);
@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }else{
       $email=$_POST['Email'];
     }
-    
+
     if(empty($_POST['old_pass']))
     {
         $pass_err="OLD PASSWORD CAN NOT BE EMPTY";
@@ -98,12 +98,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     } else {
       echo "user table Error: " . $sql1 . "<br>" . mysqli_error($con);
     }
-    }      
+    }
 }
 }
 }
 
-include('Moderatorheader/moderatorhead.php');
+
 ?>
 <style>
 
@@ -123,7 +123,7 @@ include('Moderatorheader/moderatorhead.php');
   font-weight: 500;
 }
 .box input[type="text"],
-.box input[type="password"] 
+.box input[type="password"]
 {
   border: 0;
   background: none;
@@ -138,7 +138,7 @@ include('Moderatorheader/moderatorhead.php');
   border-radius: 24px;
   transition: 0.25s;
 }
-.box p 
+.box p
 {
     border: 0;
   background: none;
@@ -176,7 +176,7 @@ include('Moderatorheader/moderatorhead.php');
 
 
 </style>
-<form class="box" action="" method="post"> 
+<form class="box" action="" method="post">
       <h1>Modaretor Profile Update</h1>
       <p style = "color: Yellow;">Name</p>
       <input type="text" name="name" placeholder="Full Name" value="<?php echo $name;?>"/>
@@ -194,7 +194,7 @@ include('Moderatorheader/moderatorhead.php');
       <input type="password" name="old_pass" placeholder="Old Password" />
       <p><?php echo $pass_err;?></p>
       <p style = "color: Yellow;">New Password</p>
-      <input type="password" name="new_pass" placeholder="New Password" />	
+      <input type="password" name="new_pass" placeholder="New Password" />
       <p><?php echo $conf_pass_err;?></p>
       <input type="submit" name="update" value="Update" />
     </form>

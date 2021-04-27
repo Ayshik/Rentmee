@@ -22,16 +22,15 @@ if(isset($_POST['info']))
   $sql1 = "insert into post(category , room , bedroom , dining , drawing , attachbathroom , commonbathroom , balcony , floor , lift , block , road , rent, photo1 , photo2 , photo3 ,status , owner) values('$category' , '$room' , '$bedroom' , '$dining' , '$drawing' , '$attachbathroom' , '$commonbathroom' , '$balcony' , '$floor' , '$lift' ,'$block' , '$road' , '$rent' , 'null' , 'null' , 'null' , '0' , '$user')";
 
 if (mysqli_query($con, $sql1)) {
-  header("location:DeletePost.php");
+header("location:DeletePost.php");
 } else {
   echo "Error deleting record: " . mysqli_error($conn);
 }
 
 
 
-}
-if(isset($_POST['room_submit']))
-{
+
+
   require_once 'db_connect2.php';
 
   {
@@ -52,8 +51,9 @@ if(isset($_POST['room_submit']))
       move_uploaded_file($_FILES["room_image"]["tmp_name"], $target_file);
 
   //echo $target_file;
-  $query="UPDATE `post` SET `photo1`='$target_file' WHERE `sl`='3'";
+  $query="UPDATE `post` SET `photo1`='$target_file' WHERE category='$category'and room='$room'and bedroom='$bedroom'and dining='$dining'and drawing='$drawing'and attachbathroom='$attachbathroom'and balcony='$balcony'and owner='$user' and rent='$rent' ";
   execute($query);
+
 }
 {
 $target_dir2="Picture/";
@@ -65,7 +65,9 @@ $imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
 move_uploaded_file($_FILES["room_image2"]["tmp_name"], $target_file2);
 
 //echo $target_file;
-$query="UPDATE `post` SET `photo2`='$target_file2' WHERE `sl`='3'";
+$query="UPDATE `post` SET `photo2`='$target_file2' WHERE category='$category'and room='$room'and bedroom='$bedroom'and dining='$dining'and drawing='$drawing'and attachbathroom='$attachbathroom'and balcony='$balcony'and owner='$user' and rent='$rent'";
+
+
 execute($query);
 }
 
@@ -78,7 +80,7 @@ execute($query);
   move_uploaded_file($_FILES["room_image3"]["tmp_name"], $target_file3);
 
 //echo $target_file;
-$query="UPDATE `post` SET `photo3`='$target_file3' WHERE `sl`='3'";
+$query="UPDATE `post` SET `photo3`='$target_file3' WHERE category='$category'and room='$room'and bedroom='$bedroom'and dining='$dining'and drawing='$drawing'and attachbathroom='$attachbathroom'and balcony='$balcony'and owner='$user' and rent='$rent'";
 execute($query);}
   }
 
@@ -86,13 +88,13 @@ execute($query);}
 
 
 
-
-
-
-
-
-
 }
+
+
+
+
+
+
 ?>
 
 
@@ -339,27 +341,21 @@ body{
 
       <div class="input_field">
 
-        <input style="color:black" type="text" id="block"placeholder="Block Name" name="block">
+        <input style="color:black" type="text" id="block"placeholder="Block Name" name="block"required>
 
       </div>
       <div class="input_field">
 
-      <input style="color:black"type="number" id="rno"placeholder="Road" name="road">
+      <input style="color:black"type="number" id="rno"placeholder="Road" name="road"required>
 
       </div>
 
       <div class="input_field">
 
-      <input style="color:black"type="number" id="rno"placeholder="Rent" name="rent">
+      <input style="color:black"type="number" id="rno"placeholder="Rent" name="rent"required>
 
       </div>
-      <div class="input_field">
 
-      <div class="btn">
-                    <input type="submit" name="info" value="Done">
-                </div>
-
-                </div>
 
 <!--like this till picture there will be one button for 1st one and 2nd one 3rd one will be optional owner can add picture if he wish-->
 
@@ -387,27 +383,27 @@ body{
                         <div class="input_field">
 
                             <label for="pic"style="color:black">Picture 1</label >
-                            <input style="color:black"type="file" id="dur" name="room_image">
+                            <input style="color:black"type="file" id="dur" name="room_image"required>
 
                         </div>
 
                         <div class="input_field">
 
                             <label for="pic"style="color:black">Picture 2</label >
-                            <input style="color:black"type="file" id="dur2" name="room_image2">
+                            <input style="color:black"type="file" id="dur2" name="room_image2"required>
 
                         </div>
 
                         <div class="input_field">
 
                             <label for="pic"style="color:black">Picture 3</label >
-                            <input style="color:black"type="file" id="dur3" name="room_image3">
+                            <input style="color:black"type="file" id="dur3" name="room_image3"required>
 
                         </div>
 
 
                         <div class="btn">
-                            <input type="submit" name="room_submit" value="Done">
+                            <input type="submit" name="info" value="Post">
                         </div>
 
                       </div>
@@ -436,35 +432,35 @@ body{
                 <div class="input_field">
 
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Room" name="room">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Room" name="room"required>
 
 
                 </div>
 
                 <div class="input_field">
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of BedRoom" name="bedroom">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of BedRoom" name="bedroom"required>
 
                 </div>
 
                 <div class="input_field">
 
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Dining" name="dining">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Dining" name="dining"required>
 
 
                 </div>
 
                 <div class="input_field">
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Drawing" name="drawing">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Drawing" name="drawing"required>
 
                 </div>
 
                 <div class="input_field">
 
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Atttach BathRoom" name="attachbathroom">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Atttach BathRoom" name="attachbathroom"required>
 
 
                 </div>
@@ -472,20 +468,20 @@ body{
                 <div class="input_field">
 
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Common BathRoom" name="commonbathroom">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Common BathRoom" name="commonbathroom"required>
 
 
                 </div>
 
                 <div class="input_field">
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Balcony" name="balcony">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Balcony" name="balcony"required>
 
                 </div>
 
                 <div class="input_field">
 
-<input style="color:black"type="number" id="rno"placeholder="Number of Floor" name="floor">
+<input style="color:black"type="number" id="rno"placeholder="Number of Floor" name="floor"required>
 
 </div>
 

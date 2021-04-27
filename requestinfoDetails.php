@@ -259,24 +259,24 @@ div.desc {
     </table>
 </div></section>
 <div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Cinque Terre" width="600" height="400">
+  <a target="_blank" href="<?php echo $row['photo1'];?>">
+    <img src="<?php echo $row['photo1'];?>" alt="Cinque Terre" width="600" height="400">
   </a>
-  <div class="desc">Add a description of the image here</div>
+
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Forest" width="600" height="400">
+  <a target="_blank" href="<?php echo $row['photo2'];?>">
+    <img src="<?php echo $row['photo2'];?>" alt="Forest" width="600" height="400">
   </a>
-  <div class="desc">Add a description of the image here</div>
+
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Northern Lights" width="600" height="400">
+  <a target="_blank" href="<?php echo $row['photo3'];?>g">
+    <img src="<?php echo $row['photo3'];?>" alt="Northern Lights" width="600" height="400">
   </a>
-  <div class="desc">Add a description of the image here</div>
+
 </div>
 
 

@@ -1,11 +1,18 @@
 <?php
-session_start(); 
+session_start();
+setcookie("cook",time()+3600);
+include('session.php');
+if (!isLoggedIn()) {
+
+ header('location:login.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8" />
-    <title>Space Owner's Dashbord</title>
+    <title>Owner's Dashbord</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="Ownerheader/owner.css" />
     <link
@@ -26,7 +33,7 @@ session_start();
             <h3><a href="owner.php">Rent Me</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Space Owner ~ </h1>
+            <h1>Welcome Owner ~<?php echo $_SESSION["loggedinuser"];?> </h1>
             <div class="rightmenu">
                <button id="buttonone" < onclick="window.location.href='logout.php';">
                 Logout
@@ -62,5 +69,3 @@ session_start();
         </li>
       </ul>
     </div>
-   
-

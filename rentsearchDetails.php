@@ -171,7 +171,7 @@ div.gallery {
   margin: -32px;
       border: 1px solid #ccc;
       float: right;
-      width: 231px;
+      width: 341px;
       margin-top: 30px;
       margin-right: 123px;
       /* tab-size: 10px; */
@@ -265,21 +265,21 @@ div.desc {
   <a target="_blank" href="<?php echo $row['photo1'];?>">
     <img src="<?php echo $row['photo1'];?>" alt="Cinque Terre" width="600" height="400">
   </a>
-  <div class="desc">Add a description of the image here</div>
+
 </div>
 
 <div class="gallery">
   <a target="_blank" href="<?php echo $row['photo2'];?>">
     <img src="<?php echo $row['photo2'];?>" alt="Forest" width="600" height="400">
   </a>
-  <div class="desc">Add a description of the image here</div>
+
 </div>
 
 <div class="gallery">
   <a target="_blank" href="<?php echo $row['photo3'];?>">
     <img src="<?php echo $row['photo3'];?>" alt="Northern Lights" width="600" height="400">
   </a>
-  <div class="desc">Add a description of the image here</div>
+
 </div>
 
   </body>
