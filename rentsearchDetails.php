@@ -1,27 +1,16 @@
 <?php
 
 include('db_connect.php');
-include('Moderatorheader/moderatorhead.php');
+include('Homeseekerheader/homeseekerheader.php');
 
-if(isset($_POST['delete']))
+
+if(isset($_POST['interested']))
 {
     $a = $_GET['sl'];
-    $sql1 = "DELETE FROM post WHERE sl = '$a' ";
-
-if (mysqli_query($con, $sql1)) {
-  header("location:ViewRequest.php");
-} else {
-  echo "Error deleting record: " . mysqli_error($conn);
-}
-}
-
-if(isset($_POST['approve']))
-{
-    $a = $_GET['sl'];
-    $sql2 = "update post set status = '1' WHERE sl = '$a' ";
+    $sql2 = "";
 
 if (mysqli_query($con, $sql2)) {
-  header("location:ViewRequest.php");
+  header("location:RentSearch.php");
 } else {
   echo "Error deleting record: " . mysqli_error($conn);
 }
@@ -252,9 +241,8 @@ div.desc {
      </tr>
 
 <!-- there will be 3 button view picture;approve;delete and back button will be common button-->
-       <td><form method="POST"><input type= "submit" value = "Delete" name = "delete"></td>
-       <td><input type= "submit" value = "APPROVE" name = "approve"></form></td>
-       <tr><td><a href = "ViewRequest.php">BACK</a></td></tr>
+       <td><input type= "submit" value = "INTERESTED" name = "interested"></form></td>
+       <tr><td><a href = "RentSearch.php">BACK</a></td></tr>
  <tbody>
     </table>
 </div></section>

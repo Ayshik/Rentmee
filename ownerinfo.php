@@ -172,6 +172,7 @@ h2{
             <td><?php echo $info["nid"];?></td>
             <td><?php echo $info["Name"];?></td>
             <td><a href = "ownerinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
+           
         </tr>        
         <?php } ?>
  </tbody>

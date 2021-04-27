@@ -152,6 +152,7 @@ h2{
             <th>Rent</th>
             <th>Block</th>
             <th>road</th>
+            <th>Action</th>
         </tr>
         </thead>
 
@@ -172,6 +173,7 @@ h2{
             <td><?php echo $info["block"];?></td> 
             <td><?php echo $info["road"];?></td>
             <td><a href = "requestinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
+
         </tr>        
         <?php } ?>
  <tbody>
