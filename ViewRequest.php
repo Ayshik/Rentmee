@@ -1,9 +1,8 @@
 <?php
-session_start();
+
 include('db_connect.php');
 include('Moderatorheader/moderatorhead.php');
-if(isset($_SESSION["loggedinuser"]))
-{
+
 ?>
 <style>
 *{
@@ -168,7 +167,8 @@ h2{
             <td><?php echo $info["category"];?></td>
             <td><?php echo $info["room"];?></td>        
             <td><?php echo $info["floor"];?></td>        
-            <td><?php echo $info["lift"];?></td>                    
+            <td><?php echo $info["lift"];?></td>  
+<td><?php echo $info["rent"];?></td>			
             <td><?php echo $info["block"];?></td> 
             <td><?php echo $info["road"];?></td>
             <td><a href = "requestinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
@@ -179,9 +179,3 @@ h2{
 </div></section>
   </body>
 </html>
-<?php }
-else
-{
-    header("location:login.php");
-}
-?>

@@ -1,4 +1,13 @@
+<?php
+session_start();
 
+ include('session.php');
+if (!isLoggedIn()) {
+
+  header('location:login.php');
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,7 +34,7 @@
             <h3><a herf="parkerarea.php">Rent me</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Moderator</h1>
+            <h1>Welcome Moderator~<?php echo $_SESSION["loggedinuser"];?></h1>
             <div class="rightmenu">
              <button id="buttonone" < onclick="window.location.href='logout.php';">
                 Logout

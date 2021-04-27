@@ -131,80 +131,78 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <html>
 <head>
   <title>Registration For Home Owner</title>
-
+<link rel="stylesheet" href="SignUpHomeSeeker.css" />
 </head>
 <body>
-<form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="registration">
-<div align = "center">
-      <h4>Registration For Home Owner</h2>
-      <table>
-        <tr>
-          <td><input type="text" name="name" placeholder='NAME' value="<?php echo $name;?>"></td>
-        </tr>
-        <tr>
+<form class="box" method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="registration">
+
+      <h1>Registration For Home Owner</h1>
+     
+        
+         <input type="text" name="name" placeholder='NAME' value="<?php echo $name;?>"></td>
+       
+       
           <td id="name_err"><?php echo $name_err;?></td>
-        </tr>
+       
 
-        <tr>
-          <td><input type="email" name="Email" placeholder='EMAIL' value="<?php echo $email;?>"></td>
-        </tr>
+      
+          <input type="text" name="Email" placeholder='EMAIL' value="<?php echo $email;?>"></td>
+     
 
-        <tr>
+       
           <td id="email_err"><?php echo $email_err;?></td>
-        </tr>
+       
             
-        <tr>
-              <td><input type="text" name="uname" id="uname" placeholder='USERNAME' value="<?php echo $uname;?>"></td>
-        </tr>
-        <tr>
+       
+             <input type="text" name="uname" id="uname" placeholder='USERNAME' value="<?php echo $uname;?>"></td>
+       
+     
               <td id="uname_err"><?php echo $uname_err;?></td>
-        </tr>
+    
             
-        <tr>
-              <td><input type="Password" name="pass" id="pass" placeholder='PASSWORD'></td>
-        </tr>
-        <tr>
+      
+            <input type="password" name="pass" id="pass" placeholder='PASSWORD'></td>
+     
+      
               <td id="pass_err"><?php echo  $pass_err;?></td>
-        </tr>
+       
             
-        <tr>          
-              <td><input type="Password" name="con_pass" id="con_pass" placeholder='CONFIRM PASSWORD'></td>
-        </tr>
-        <tr>
+               
+              <td><input type="password" name="con_pass" id="con_pass" placeholder='CONFIRM PASSWORD'></td>
+       
+      
               <td id="conf_pass_err"><?php echo  $conf_pass_err;?></td>
-        </tr>
-       <tr>
-         <td><input type="number" name="nid" placeholder='NATIONAL ID NUMBER' value="<?php echo $nid;?>"></td>
-        </tr>
-        <tr>
+       
+      
+     <input type="text" name="nid" placeholder='NATIONAL ID NUMBER' value="<?php echo $nid;?>"></td>
+     
+      
          <td id="nid_err"><?php echo  $nid_err;?></td>
-       </tr>
+      
 
-       <tr>
-         <td><input type="number" name="phone" placeholder='PHONE NUMBER' value="<?php echo $phone;?>"></td>
-        </tr>
-        <tr>
+    
+        <input type="text" name="phone" placeholder='PHONE NUMBER' value="<?php echo $phone;?>"></td>
+       
+       
          <td id="phn_err"><?php echo  $phn_err;?></td>    
-       </tr> 
+      
 
-       <tr> 
-         <td>
-           <textarea placeholder='ADDRESS' name="address" value="<?php echo $address;?>" ></textarea></td>
-        </tr>
-        <tr>
+    
+           <input type="text"  placeholder='ADDRESS' name="address" value="<?php echo $address;?>" ></textarea></td>
+       
          <td id="add_err"><?php echo  $add_err;?></td>
-       </tr> 
+    
 
-       <tr>
-         <td colspan=2><input type="submit" name="submit" value="REGISTER" id='btn'></td>
-       </tr> 
+     
+       <input type="submit" name="submit" value="REGISTER" id='btn'></td>
+  
 
-       <tr>
-         <td colspan=2><a href = "login.php">Login</a></td>
-       </tr> 
+     
+       
+    
                  
-   </table>   
-</div>
+   
+
    </form>
    
 </body>

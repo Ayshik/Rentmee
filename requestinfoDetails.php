@@ -1,9 +1,8 @@
 <?php
-session_start();
+
 include('db_connect.php');
-include('Ownerheader/ownerhead.php');
-if(isset($_SESSION["loggedinuser"]))
-{
+include('Moderatorheader/moderatorhead.php');
+
 if(isset($_POST['delete']))
 {
     $a = $_GET['sl'];
@@ -208,9 +207,3 @@ h2{
 </div></section>
   </body>
 </html>
-<?php }
-else
-{
-    header("location:login.php");
-}
-?>
