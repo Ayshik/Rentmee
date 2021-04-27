@@ -241,7 +241,7 @@ div.desc {
 
 <!-- there will be 3 button view picture;approve;delete and back button will be common button-->
        <tr><th><form method="POST"><input type= "submit" value = "Delete" name = "delete"></th></tr>
-       <tr><th><a href = "DeletePost.php">BACK</a></th></tr>
+       <tr><th><a href = "ViewRequest.php">BACK</a></th></tr>
  <tbody>
     </table>
 </div></section>
