@@ -1,14 +1,14 @@
 <?php
 
-include('db_connect.php');
-include('Homeseekerheader/homeseekerheader.php');
 
+include('Homeseekerheader/homeseekerheader.php');
+include('db_connect.php');
 
 if(isset($_POST['interested']))
 {
     $postsl = $_GET['sl'];
     $seeker = $_SESSION['loggedinuser'];
-    $localdate = date('Y-m-d h:i:sa');
+    $localdate = date('Y-m-d h:i:s');
     $sql1 = "select * from post where sl = '$postsl' ";
     $results = mysqli_query($con, $sql1);
     $result = mysqli_fetch_assoc($results);
@@ -18,7 +18,12 @@ if(isset($_POST['interested']))
     $result1 = mysqli_fetch_assoc($results1);
     $phone= $result1['phone'];
 
-    $sql3 = "insert into applied(postsl , owner , seeker , phone , date , status ) values ('$postsl' , '$owner' , '$seeker' , '$phone' , '$localdate' , '1')";
+    $sql4 = "select * from owner where username = '$owner' ";
+    $results2 = mysqli_query($con, $sql4);
+    $result2 = mysqli_fetch_assoc($results2);
+    $owner_phone= $result2['phone'];
+
+    $sql3 = "insert into applied(postsl , owner , seeker , phone , date , status , ownerphone) values ('$postsl' , '$owner' , '$seeker' , '$phone' , '$localdate' , '1' , '$owner_phone')";
 
 if (mysqli_query($con, $sql3)) {
   header("location:RentSearch.php");
@@ -221,7 +226,6 @@ div.desc {
        ?>
        <tr>
 
-
            <td><?php echo $row['category'];?></td>
 
            <td><?php echo $row['room'];?></td>
@@ -258,31 +262,25 @@ div.desc {
     </table>
 </div></section>
 <div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Cinque Terre" width="600" height="400">
+  <a target="_blank" href="<?php echo $row['photo1'];?>">
+    <img src="<?php echo $row['photo1'];?>" alt="Cinque Terre" width="600" height="400">
   </a>
   <div class="desc">Add a description of the image here</div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Forest" width="600" height="400">
+  <a target="_blank" href="<?php echo $row['photo2'];?>">
+    <img src="<?php echo $row['photo2'];?>" alt="Forest" width="600" height="400">
   </a>
   <div class="desc">Add a description of the image here</div>
 </div>
 
 <div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Northern Lights" width="600" height="400">
+  <a target="_blank" href="<?php echo $row['photo3'];?>">
+    <img src="<?php echo $row['photo3'];?>" alt="Northern Lights" width="600" height="400">
   </a>
   <div class="desc">Add a description of the image here</div>
 </div>
 
-<div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
   </body>
 </html>

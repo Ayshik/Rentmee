@@ -52,7 +52,7 @@ if(isset($_POST['room_submit']))
       move_uploaded_file($_FILES["room_image"]["tmp_name"], $target_file);
 
   //echo $target_file;
-  $query="UPDATE `post` SET `photo1`='$target_file' WHERE `sl`='1'";
+  $query="UPDATE `post` SET `photo1`='$target_file' WHERE `sl`='3'";
   execute($query);
 }
 {
@@ -65,7 +65,7 @@ $imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
 move_uploaded_file($_FILES["room_image2"]["tmp_name"], $target_file2);
 
 //echo $target_file;
-$query="UPDATE `post` SET `photo2`='$target_file2' WHERE `sl`='1'";
+$query="UPDATE `post` SET `photo2`='$target_file2' WHERE `sl`='3'";
 execute($query);
 }
 
@@ -78,7 +78,7 @@ execute($query);
   move_uploaded_file($_FILES["room_image3"]["tmp_name"], $target_file3);
 
 //echo $target_file;
-$query="UPDATE `post` SET `photo3`='$target_file3' WHERE `sl`='1'";
+$query="UPDATE `post` SET `photo3`='$target_file3' WHERE `sl`='3'";
 execute($query);}
   }
 

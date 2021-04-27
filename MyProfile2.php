@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+include('Homeseekerheader/homeseekerheader.php');
 include "db_connect.php";
 $name=$email=$uname=$pass=$conf_pass=$phone=$address=$old_pass_db="";
 $name_err=$email_err=$pass_err=$uname_err=$phn_err=$add_err=$conf_pass_err="";
@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 }
 }
 }
-include('Homeseekerheader/homeseekerheader.php');
+
 ?>
 <style>
 

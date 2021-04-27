@@ -173,7 +173,7 @@ h2{
             <td><?php echo $info["lift"];?></td>                    
             <td><?php echo $info["block"];?></td> 
             <td><?php echo $info["road"];?></td>
-            <td><a href = "requestinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
+            <td><a href = "deletepostinfo.php?sl=<?php echo $info["sl"];?>">Details</a>
         </tr>        
         <?php } ?>
  <tbody>

@@ -1,5 +1,5 @@
 <?php
-session_start();
+include('Ownerheader/ownerhead.php');
 include 'db_connect.php';
 $report =$report_err = $subject = $subject_err = $message = $message_err = "";
 
@@ -29,7 +29,7 @@ else
 {
     header("Location:login.php");
 }
-include('Ownerheader/ownerhead.php');
+
 
 ?>
 <style>
