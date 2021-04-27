@@ -14,7 +14,7 @@ if(isset($_SESSION["loggedinuser"]))
 body{
     font-family: Helvetica;
     -webkit-font-smoothing: antialiased;
-   
+
 }
 h2{
     text-align: center;
@@ -29,7 +29,7 @@ h2{
 
 .table-wrapper{
     margin: 10px 70px 70px;
-    
+
 }
 
 .fl-table {
@@ -157,24 +157,24 @@ h2{
         </thead>
 
         <tbody>
-         
-        <?php       
+
+        <?php
         $sql = "select * from owner";
         $result = mysqli_query($con,$sql);
         foreach($result as $info)
         {?>
         <tr>
-            <td><?php echo $info["sl"];?></td> 
+            <td><?php echo $info["sl"];?></td>
             <td><?php echo $info["username"];?></td>
-            <td><?php echo $info["email"];?></td>        
-            <td><?php echo $info["phone"];?></td>        
-            <td><?php echo $info["Address"];?></td>                    
-            <td><?php echo $info["nid"];?></td> 
+            <td><?php echo $info["email"];?></td>
+            <td><?php echo $info["phone"];?></td>
+            <td><?php echo $info["Address"];?></td>
+            <td><?php echo $info["nid"];?></td>
             <td><?php echo $info["Name"];?></td>
             <td><a href = "ownerinfoDetails.php?sl=<?php echo $info["sl"];?>">Details</a>
         </tr>        
         <?php } ?>
- <tbody>
+ </tbody>
     </table>
 </div></section>
   </body>

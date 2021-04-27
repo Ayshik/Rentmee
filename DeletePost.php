@@ -2,7 +2,7 @@
 
 include('db_connect.php');
 include('Moderatorheader/moderatorhead.php');
-
+?>
 <style>
 *{
     box-sizing: border-box;
