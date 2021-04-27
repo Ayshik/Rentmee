@@ -1,6 +1,6 @@
 
 <?php
-session_start();
+
 include('db_connect.php');
 include('Homeseekerheader/homeseekerheader.php');
 if(isset($_SESSION["loggedinuser"]))

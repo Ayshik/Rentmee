@@ -8,10 +8,19 @@ if(isset($_POST['interested']))
 {
     $postsl = $_GET['sl'];
     $seeker = $_SESSION['loggedinuser'];
-    
-    $sql2 = "";
+    $localdate = date('Y-m-d h:i:sa');
+    $sql1 = "select * from post where sl = '$postsl' ";
+    $results = mysqli_query($con, $sql1);
+    $result = mysqli_fetch_assoc($results);
+    $owner = $result['owner'];
+    $sql2 = "select * from homeseeker where username = '$seeker' ";
+    $results1 = mysqli_query($con, $sql2);
+    $result1 = mysqli_fetch_assoc($results1);
+    $phone= $result1['phone'];
 
-if (mysqli_query($con, $sql2)) {
+    $sql3 = "insert into applied(postsl , owner , seeker , phone , date , status ) values ('$postsl' , '$owner' , '$seeker' , '$phone' , '$localdate' , '1')";
+
+if (mysqli_query($con, $sql3)) {
   header("location:RentSearch.php");
 } else {
   echo "Error deleting record: " . mysqli_error($conn);
@@ -243,7 +252,7 @@ div.desc {
      </tr>
 
 <!-- there will be 3 button view picture;approve;delete and back button will be common button-->
-       <td><input type= "submit" value = "INTERESTED" name = "interested"></form></td>
+       <td><form method= "post"><input type= "submit" value = "INTERESTED" name = "interested"></form></td>
        <tr><td><a href = "RentSearch.php">BACK</a></td></tr>
  <tbody>
     </table>
