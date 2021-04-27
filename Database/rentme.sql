@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2021 at 05:06 PM
+-- Generation Time: Apr 27, 2021 at 05:28 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -44,6 +44,29 @@ INSERT INTO `admin` (`sl`, `username`, `Password`, `type`) VALUES
 (3, 'aysh', '123321', 'Admin'),
 (4, 'Saif', '4321', 'Admin'),
 (5, 'Rohan07', '12345', 'Admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applied`
+--
+
+CREATE TABLE `applied` (
+  `sl` int(11) NOT NULL,
+  `postsl` int(10) NOT NULL,
+  `owner` varchar(20) NOT NULL,
+  `seeker` varchar(20) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `date` varchar(20) NOT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `applied`
+--
+
+INSERT INTO `applied` (`sl`, `postsl`, `owner`, `seeker`, `phone`, `date`, `status`) VALUES
+(3, 3, 'w', 'a', '017933240820', '2021-04-27 05:26:24p', '1');
 
 -- --------------------------------------------------------
 
@@ -260,6 +283,12 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`sl`);
 
 --
+-- Indexes for table `applied`
+--
+ALTER TABLE `applied`
+  ADD PRIMARY KEY (`sl`);
+
+--
 -- Indexes for table `booking`
 --
 ALTER TABLE `booking`
@@ -310,6 +339,12 @@ ALTER TABLE `reportbox`
 --
 ALTER TABLE `admin`
   MODIFY `sl` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `applied`
+--
+ALTER TABLE `applied`
+  MODIFY `sl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `booking`
