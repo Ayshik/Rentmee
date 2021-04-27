@@ -1,8 +1,9 @@
 <?php
 
 include('db_connect.php');
-include('Moderatorheader/moderatorhead.php');
+include('Ownerheader/ownerhead.php');
 
+?>
 <style>
 *{
     box-sizing: border-box;

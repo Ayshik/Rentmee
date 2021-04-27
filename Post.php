@@ -1,5 +1,36 @@
 <?php
 include('Ownerheader/ownerhead.php');
+include('db_connect.php');
+
+if(isset($_POST['info']))
+{
+  $user = $_SESSION["loggedinuser"];
+  $category = $_POST['category'];
+  $room = $_POST['room'];
+  $bedroom = $_POST['bedroom'];
+  $dining = $_POST['dining'];
+  $drawing = $_POST['drawing'];
+  $attachbathroom = $_POST['attachbathroom'];
+  $commonbathroom = $_POST['commonbathroom'];
+  $balcony = $_POST['balcony'];
+  $floor = $_POST['floor'];
+  $lift = $_POST['lift'];
+  $block = $_POST['block'];
+  $road = $_POST['road'];
+  $rent = $_POST['rent'];
+
+  $sql1 = "insert into post(category , room , bedroom , dining , drawing , attachbathroom , commonbathroom , balcony , floor , lift , block , road , rent, photo1 , photo2 , photo3 ,status , owner) values('$category' , '$room' , '$bedroom' , '$dining' , '$drawing' , '$attachbathroom' , '$commonbathroom' , '$balcony' , '$floor' , '$lift' ,'$block' , '$road' , '$rent' , 'null' , 'null' , 'null' , '0' , '$user')";
+
+if (mysqli_query($con, $sql1)) {
+  header("location:DeletePost.php");
+} else {
+  echo "Error deleting record: " . mysqli_error($conn);
+}
+
+
+
+}
+
 ?>
 
 
@@ -237,27 +268,25 @@ body{
 
       <div class="input_field">
         <label for="Class"style="color:black">Lift</label>
-        <select  name="class_dashboard"><br><br>
+        <select  name="lift"><br><br>
 
-          <option value="Yes" selected>Yes</option>
-          <option value="NO" >NO</option>
-
-
-
-
-        </select>
-
+          <option value="available" selected>Yes</option>
+          <option value="not available" >NO</option>
+        </select>    
       </div>
-
-
 
       <div class="input_field">
 
         <input style="color:black" type="text" id="block"placeholder="Block Name" name="block">
 
       </div>
+      <div class="input_field">
 
+      <div class="btn">
+                    <input type="submit" name="info" value="Done">
+                </div>
 
+                </div>
 
 <!--like this till picture there will be one button for 1st one and 2nd one 3rd one will be optional owner can add picture if he wish-->
 
@@ -322,23 +351,47 @@ body{
 
             <div class="input_field">
               <label for="Class"style="color:black">Select catagory :</label>
-              <select  name="class"><br><br>
+              <select  name="category"><br><br>
 
                 <option value="Family" selected>Family</option>
                 <option value="Bechalor" >Bechalor</option>
-
-
 
               </select>
 
             </div>
 
+                <div class="input_field">
 
+
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Room" name="room">
+
+
+                </div>
+
+                <div class="input_field">
+
+                    <input style="color:black"type="number" id="rno"placeholder="Number of BedRoom" name="bedroom">
+
+                </div>
 
                 <div class="input_field">
 
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Room" name="roomno">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Dining" name="dining">
+
+
+                </div>
+
+                <div class="input_field">
+
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Drawing" name="drawing">
+
+                </div>
+
+                <div class="input_field">
+
+
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Atttach BathRoom" name="attachbathroom">
 
 
                 </div>
@@ -346,73 +399,39 @@ body{
                 <div class="input_field">
 
 
-                    <input style="color:black"type="number" id="rno"placeholder="Number of Room" name="roomno">
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Common BathRoom" name="commonbathroom">
 
 
                 </div>
 
-<!--like this write till no of floor          i am giving the old code
+                <div class="input_field">
 
+                    <input style="color:black"type="number" id="rno"placeholder="Number of Balcony" name="balcony">
 
-
-
-<tr>
-        <td>Number of Room</td>
-        <td><input type="number"></td>
-    </tr>
-    <tr>
-        <td>Number of Master Bedroom</td>
-        <td><input type="number"></td>
-    </tr>
-    <tr>
-        <td>Number of Dining</td>
-        <td><input type="number"></td>
-    </tr>
-    <tr>
-        <td>Number of Drawing</td>
-        <td><input type="number"></td>
-    </tr>
-    <tr>
-        <td>Number of Attached Bathroom</td>
-        <td><input type="number"></td>
-    </tr>
-
-    <tr>
-        <td>Number of Common Bathroom</td>
-        <td><input type="number"></td>
-    </tr>
-
-    <tr>
-        <td>Number of Balcony</td>
-        <td><input type="number"></td>
-    </tr>
-
-    <tr>
-        <td>Floor Number</td>
-        <td><input type="number"></td>
-    </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
-
-
-                <div class="btn">
-                    <input type="submit" name="galary_submit" value="Done">
                 </div>
+
+                <div class="input_field">
+
+<input style="color:black"type="number" id="rno"placeholder="Number of Floor" name="floor">
+
+</div>
+
+
+<div class="input_field">
+
+<input style="color:black"type="number" id="rno"placeholder="Road" name="road">
+
+</div>
+
+<div class="input_field">
+
+<input style="color:black"type="number" id="rno"placeholder="Rent" name="rent">
+
+</div>
+
+
+
+               
 
               </div>
 
