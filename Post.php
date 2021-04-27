@@ -30,7 +30,69 @@ if (mysqli_query($con, $sql1)) {
 
 
 }
+if(isset($_POST['room_submit']))
+{
+  require_once 'db_connect2.php';
 
+  {
+
+
+  if(!empty('$_SESSION["loggedinuser"]')){
+    $var=$_SESSION["loggedinuser"];
+
+  }
+{
+   //file upload 1
+      $target_dir="Picture/";
+      $target_file = $target_dir . basename($_FILES["room_image"]["name"]);
+
+      $uploadOk = 1;
+      $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+      move_uploaded_file($_FILES["room_image"]["tmp_name"], $target_file);
+
+  //echo $target_file;
+  $query="UPDATE `post` SET `photo1`='$target_file' WHERE `sl`='1'";
+  execute($query);
+}
+{
+$target_dir2="Picture/";
+$target_file2 = $target_dir2 . basename($_FILES["room_image2"]["name"]);
+
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file2,PATHINFO_EXTENSION));
+
+move_uploaded_file($_FILES["room_image2"]["tmp_name"], $target_file2);
+
+//echo $target_file;
+$query="UPDATE `post` SET `photo2`='$target_file2' WHERE `sl`='1'";
+execute($query);
+}
+
+{  $target_dir3="Picture/";
+  $target_file3 = $target_dir3 . basename($_FILES["room_image3"]["name"]);
+
+  $uploadOk = 1;
+  $imageFileType = strtolower(pathinfo($target_file3,PATHINFO_EXTENSION));
+
+  move_uploaded_file($_FILES["room_image3"]["tmp_name"], $target_file3);
+
+//echo $target_file;
+$query="UPDATE `post` SET `photo3`='$target_file3' WHERE `sl`='1'";
+execute($query);}
+  }
+
+
+
+
+
+
+
+
+
+
+
+}
 ?>
 
 
@@ -183,7 +245,7 @@ body{
 
 .wrapper3{
   position: absolute;
-    top: 51%;
+    top: 70%;
     /* left: 160%; */
     right: 175%;
     transform: translate(-47%,-50%);
@@ -272,12 +334,23 @@ body{
 
           <option value="available" selected>Yes</option>
           <option value="not available" >NO</option>
-        </select>    
+        </select>
       </div>
 
       <div class="input_field">
 
         <input style="color:black" type="text" id="block"placeholder="Block Name" name="block">
+
+      </div>
+      <div class="input_field">
+
+      <input style="color:black"type="number" id="rno"placeholder="Road" name="road">
+
+      </div>
+
+      <div class="input_field">
+
+      <input style="color:black"type="number" id="rno"placeholder="Rent" name="rent">
 
       </div>
       <div class="input_field">
@@ -417,21 +490,11 @@ body{
 </div>
 
 
-<div class="input_field">
-
-<input style="color:black"type="number" id="rno"placeholder="Road" name="road">
-
-</div>
-
-<div class="input_field">
-
-<input style="color:black"type="number" id="rno"placeholder="Rent" name="rent">
-
-</div>
 
 
 
-               
+
+
 
               </div>
 
