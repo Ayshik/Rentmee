@@ -163,12 +163,12 @@ h2{
 }
 
 div.gallery {
-  margin: -32px;
+  margin: -98px;
       border: 1px solid #ccc;
       float: right;
-      width: 231px;
+      width: 274px;
       margin-top: 30px;
-      margin-right: 123px;
+      margin-right: 204px;
       /* tab-size: 10px; */
       /* -webkit-text-stroke-width: medium; */
       color: #7e3ce7;
@@ -279,11 +279,6 @@ div.desc {
   <div class="desc">Add a description of the image here</div>
 </div>
 
-<div class="gallery">
-  <a target="_blank" href="Picture/home.jpg">
-    <img src="Picture/home.jpg" alt="Mountains" width="600" height="400">
-  </a>
-  <div class="desc">Add a description of the image here</div>
-</div>
+
   </body>
 </html>
